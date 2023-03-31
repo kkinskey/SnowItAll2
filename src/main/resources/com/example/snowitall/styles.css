@@ -1,0 +1,6 @@
+.anchor-pane {
+    -fx-background: url("image1.jpg") center center no-repeat ;
+    -fx-background-size: cover;
+    -fx-background-color: lightblue;
+
+}
