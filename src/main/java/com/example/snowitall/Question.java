@@ -10,7 +10,7 @@ public class Question {
 //
 //    private FillInBlankQuestion fibQuestion;
 
-    ArrayList<MultipleChoiceQuestion> questions = new ArrayList<MultipleChoiceQuestion>();
+//    ArrayList<MultipleChoiceQuestion> questions = new ArrayList<MultipleChoiceQuestion>();
 
     //List to store true or false questions
 //    private List<String> tfQuestions;

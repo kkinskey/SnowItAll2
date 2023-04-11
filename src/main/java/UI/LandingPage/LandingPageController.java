@@ -1,6 +1,6 @@
 package UI.LandingPage;
 
-import Backend.Grade.Grade;
+//import Backend.Grade.Grade;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
