@@ -1,6 +1,0 @@
-.arrow-button {
-    -fx-background-image: url('/path/to/arrow-image.png');
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center center;
-    -fx-background-size: 16px 16px;
-}

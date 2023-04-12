@@ -15,7 +15,7 @@ public class Login extends Application{
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 
 
         // Set up the primary stage
