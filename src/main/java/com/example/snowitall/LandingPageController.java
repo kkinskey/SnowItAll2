@@ -6,21 +6,23 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 public class LandingPageController {
-//    private Stage primaryStage;
-//    public void setPrimaryStage(Stage primaryStage) {
-//        this.primaryStage = primaryStage;
-//    }
-//
+
+
+    public LandingPageController(Login model) {
+
+    }
+
+    public void labelSetter() {
+        model.getGiftGlooController().setLabel(model.getPracticeController().getIntLabel());
+    }
     @FXML
     private void handleOperations(ActionEvent event) throws IOException {
-            Parent root = FXMLLoader.load(getClass().getResource("operationsLandingPage.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("GradePrompt.fxml"));
 
             // Get the current stage from the button's scene
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -32,72 +34,48 @@ public class LandingPageController {
             stage.show();
     }
 
-
-
-//    @FXML
-//            private void handBackButton(ActionEvent event) throws Exception{
-//
-//
-//
-////                Button backButton = new Button("Back");
-////                backButton.setOnAction(e -> {
-////                    Scene previousScene = getPreviousScene(); // Implement this method to get the previous scene
-////                    if (previousScene != null) {
-////                        Stage stage = (Stage) backButton.getScene().getWindow();
-////                        stage.setScene(previousScene);
-////                    }
-////                });
-//    }
-
-
-    //Purpose: Controller in the MVC structure for the landingpage
-
-//        @FXML
-//        private Button operations;
-//
-        @FXML
-        private Button operationsButton;
-//
-
-//
-//        @FXML
-//        private Label island1Name;
-
-//        @FXML
-//        private Label island2Name;
-//
-//        @FXML
-//        private Label island3Name;
-//
-//        @FXML
-//        private ImageView kFlag;
-//
-//        @FXML
-//        private ImageView fsFlag;
-//
-//        @FXML
-//        private ImageView tfFlag;
-//
-
-//
-
-        private LandingPage model = new LandingPage();
-
-
-        public LandingPageController() {
-            super();
-        }
-
     @FXML
-    void operationsButtonPressed(ActionEvent event){
-        /*Call goToStandard() from LandingPage;
-        When Operations button is pressed, the software takes you back to the Standard*/
-        model.goToStandard(event, operationsButton);
-//                ,"/UI/Standard/Operations/operationsLandingPage.fxml"
-//        );
+    private void handleGrade(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("operationsLandingPage.fxml"));
 
-        //mediaPlayer.stop();
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setTitle("Snow It All");
+        stage.setScene(scene);
+        stage.show();
     }
 
+    @FXML
+    private void handleGiftGloo(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GiftGloo.fxml"));
+//        FXMLLoader l = new FXMLLoader(getClass().getResource("FIB.fxml"));
+        Parent root = loader.load();
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Get the controller object
+//        GiftGlooController giftGlooController = loader.getController();
+//        PracticeController practiceController = l.getController();
+//        GiftGlooController giftGlooController = l.getController(); //NOTE: You cannot have two loaders apparently!
+
+//        System.out.println("SnowFlakes" + );
+        // Call the setLabelText() method on the controller object
+//        giftGlooController.setLabel(practiceController.getIntLabel());
+//           String text = giftGlooController.practiceController.getGift().getSnowflakes() + "";
+//           System.out.println(text);
+//           giftGlooController.updateLabelText(text);
+        labelSetter();
+
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setTitle("Snow It All");
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }
