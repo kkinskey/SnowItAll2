@@ -1,18 +1,7 @@
 package com.example.snowitall;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-
-import java.util.Random;
-
 public class PracticeModel {
 
-    @FXML
-    private Label questionText;
-
-    private String questionTextstr;;
-
-    String[] firstGradequestions;
 
     private int number1;
 
@@ -28,15 +17,16 @@ public class PracticeModel {
 
     private String num2;
 
-    private String choice1;
-
-    private String choice2;
-
-    private String choice3;
-
-    private String choice4;
 
     private String[] choices = new String[4];
+
+    private String[] tfAnswers = new String[2];
+
+    private boolean correctAnswerTF;
+
+    private int correctAnswerCount;
+
+    private String operationSymbol;
 
     public String[] getChoices() {
         return choices;
@@ -46,11 +36,9 @@ public class PracticeModel {
         this.choices = choices;
     }
 
-    public String getQuestionText() {
-        return questionTextstr;
-    }
 
     public PracticeModel() {
+
     }
 
     public int getNumber1() {
@@ -109,35 +97,37 @@ public class PracticeModel {
         this.correctAnswerIndex = correctAnswerIndex;
     }
 
-    public String getChoice1() {
-        return choice1;
+    public int getCorrectAnswerCount() {
+        return correctAnswerCount;
     }
 
-    public void setChoice1(String choice1) {
-        this.choice1 = choice1;
+    public void setCorrectAnswerCount(int correctAnswerCount) {
+        this.correctAnswerCount = correctAnswerCount;
     }
 
-    public String getChoice2() {
-        return choice2;
+    public String[] getTfAnswers() {
+        return tfAnswers;
     }
 
-    public void setChoice2(String choice2) {
-        this.choice2 = choice2;
+    public void setTfAnswers(String[] tfAnswers) {
+        this.tfAnswers = tfAnswers;
     }
 
-    public String getChoice3() {
-        return choice3;
+    public boolean getCorrectAnswerTF() {
+        return correctAnswerTF;
     }
 
-    public void setChoice3(String choice3) {
-        this.choice3 = choice3;
+    public void setCorrectAnswerTF(boolean correctAnswerTF) {
+        this.correctAnswerTF = correctAnswerTF;
     }
 
-    public String getChoice4() {
-        return choice4;
+    public String getOperationSymbol() {
+        return operationSymbol;
     }
 
-    public void setChoice4(String choice4) {
-        this.choice4 = choice4;
+    public void setOperationSymbol(String operationSymbol) {
+        this.operationSymbol = operationSymbol;
     }
 }
+
+

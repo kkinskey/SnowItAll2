@@ -1,37 +1,37 @@
 package com.example.snowitall;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.stage.Stage;
-import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
 
 public class Login extends Application{
-
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 
+        Login login = new Login();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("Login.fxml"));
+        Parent root = loader.load();
 
         // Set up the primary stage
         primaryStage.setTitle("Login");
-        primaryStage.setScene(new Scene(root, 400, 300));
+        primaryStage.setScene(new Scene(root, 508, 400));
         primaryStage.show();
-
 
         // Show the primary stage
         primaryStage.show();
     }
 
-
-
-
-    public void goToLandingPage(ActionEvent event, Button button) {
+    public void goToLandingPage(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("landing-page.fxml"));
             Parent homePageParent = loader.load();
@@ -43,8 +43,6 @@ public class Login extends Application{
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-
 }
 
