@@ -10,7 +10,7 @@
 <AnchorPane prefHeight="485.0" prefWidth="850.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snowitall.MasteryController">
     <children>
 
-        <!--        <Button fx:id="Next" layoutX="779.0" layoutY="430.0" mnemonicParsing="false" onAction="#NextButton" text="Next" />-->
+<!--        <Button fx:id="Next" layoutX="779.0" layoutY="430.0" mnemonicParsing="false" onAction="#NextButton" text="Next" />-->
         <ImageView fitHeight="486.0" fitWidth="850.0">
             <image>
                 <Image url="@Mastery-Background.png" />
@@ -18,7 +18,7 @@
         </ImageView>
         <Button layoutX="4.0" layoutY="416.0" mnemonicParsing="false" onAction="#returntooperationspageButton" opacity="0.0" prefHeight="64.0" prefWidth="120.0" text="Return" />
         <Button fx:id="Submit" layoutX="383.0" layoutY="421.0" mnemonicParsing="false" onAction="#handleFIBSubmitButton" opacity="0.0" prefHeight="34.0" prefWidth="87.0" text="Submit" />
-        <Button layoutX="751.0" layoutY="421.0" mnemonicParsing="false" opacity="0.0" prefHeight="58.0" prefWidth="94.0" text="Next" />
+      <Button layoutX="751.0" layoutY="421.0" mnemonicParsing="false" opacity="0.0" prefHeight="58.0" prefWidth="94.0" text="Next" />
         <Label fx:id="questionLabel" layoutX="372.0" layoutY="212.0" text="What is 9 x 4?" />
         <TextField fx:id="answerField" layoutX="338.0" layoutY="230.0" promptText="Enter your answer here" />
         <Label fx:id="feedbackLabel" translateX="415.0" translateY="300.0" />

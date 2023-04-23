@@ -1,8 +1,6 @@
 package com.example.snowitall;
 
-public class PracticeModel {
-
-
+public class MasteryTestModel {
     private int number1;
 
     private int number2;
@@ -26,8 +24,6 @@ public class PracticeModel {
 
     private int correctAnswerCount;
 
-    private String operationSymbol;
-
     public String[] getChoices() {
         return choices;
     }
@@ -37,7 +33,7 @@ public class PracticeModel {
     }
 
 
-    public PracticeModel() {
+    public MasteryTestModel() {
 
     }
 
@@ -120,14 +116,4 @@ public class PracticeModel {
     public void setCorrectAnswerTF(boolean correctAnswerTF) {
         this.correctAnswerTF = correctAnswerTF;
     }
-
-    public String getOperationSymbol() {
-        return operationSymbol;
-    }
-
-    public void setOperationSymbol(String operationSymbol) {
-        this.operationSymbol = operationSymbol;
-    }
 }
-
-

@@ -20,7 +20,7 @@
       <Button layoutX="385.0" layoutY="221.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="123.0" text="geometryLabelButton" visible="false" />
       <Button layoutX="225.0" layoutY="81.0" mnemonicParsing="false" onAction="#handleOperations" opacity="0.0" prefHeight="36.0" prefWidth="135.0" text="operationsLabelButton" />
       <Button layoutX="239.0" layoutY="276.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="135.0" text="countingLabelButton" visible="false" />
-      <Button layoutX="151.0" layoutY="221.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="111.0" text="giftGlooButton" visible="false" />
+      <Button layoutX="151.0" layoutY="221.0" mnemonicParsing="false" onAction="#handleGiftGloo" opacity="0.0" prefHeight="36.0" prefWidth="111.0" text="giftGlooButton" visible="true" />
       <Button layoutX="7.0" layoutY="276.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="123.0" text="logoutButton" visible="false" />
       <Button layoutX="422.0" layoutY="254.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="76.0" text="geometryLabelButton" visible="false" />
       <Button layoutX="487.0" layoutY="113.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="83.0" text="measurementsLabelButton" visible="false" />
