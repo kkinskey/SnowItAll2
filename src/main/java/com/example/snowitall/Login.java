@@ -1,9 +1,12 @@
 package com.example.snowitall;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -15,63 +18,8 @@ public class Login extends Application{
     private LandingPageController landingPageController;
     private GiftGlooController giftGlooController;
     private OperationsController operationsController; // NOTE: 4/20 I never pass this anwhere maybe delete it saving it for later usage potentially.
-    private ControllerManager controllerManager;
-    public Login() {
-        this.loginController = new LoginController();
-        this.practiceController = new PracticeController();
-        this.landingPageController = new LandingPageController();
-        this.giftGlooController = new GiftGlooController();
-        this.operationsController = new OperationsController();
-        this.controllerManager = new ControllerManager();
-    }
 
-    public LoginController getLoginController() {
-        return loginController;
-    }
-
-    public void setLoginController(LoginController loginController) {
-        this.loginController = loginController;
-    }
-
-    public PracticeController getPracticeController() {
-        return practiceController;
-    }
-
-    public void setPracticeController(PracticeController practiceController) {
-        this.practiceController = practiceController;
-    }
-
-    public LandingPageController getLandingPageController() {
-        return landingPageController;
-    }
-
-    public void setLandingPageController(LandingPageController landingPageController) {
-        this.landingPageController = landingPageController;
-    }
-
-    public GiftGlooController getGiftGlooController() {
-        return giftGlooController;
-    }
-
-    public void setGiftGlooController(GiftGlooController giftGlooController) {
-        this.giftGlooController = giftGlooController;
-    }
-
-    public OperationsController getOperationsController() {
-        return operationsController;
-    }
-
-    public void setOperationsController(OperationsController operationsController) {
-        this.operationsController = operationsController;
-    }
-
-    public ControllerManager getControllerManager() {
-        return controllerManager;
-    }
-
-    public void setControllerManager(ControllerManager controllerManager) {
-        this.controllerManager = controllerManager;
-    }
+    private Stage primaryStage;
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -79,7 +27,7 @@ public class Login extends Application{
         Login login = new Login();
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("landing-page.fxml"));
+        loader.setLocation(getClass().getResource("Login.fxml"));
         Parent root = loader.load();
 
         // Set up the primary stage
@@ -92,21 +40,64 @@ public class Login extends Application{
         primaryStage.show();
     }
 
-//    public void goToLandingPage(ActionEvent event, Button button) {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("landing-page.fxml"));
-//            Parent homePageParent = loader.load();
-//            Scene homePageScene = new Scene(homePageParent); //Make scene with that path
-//            Stage window = (Stage) (((Node) event.getSource()).getScene().getWindow()); //Assign nodes to the window
-//            window.setScene(homePageScene); //Set the scene
-//            window.show(); //Make it visible
+    public void goToLandingPage(ActionEvent event, Button button) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("landing-page.fxml"));
+            Parent homePageParent = loader.load();
+            Scene homePageScene = new Scene(homePageParent); //Make scene with that path
+            Stage window = (Stage) (((Node) event.getSource()).getScene().getWindow()); //Assign nodes to the window
+            window.setScene(homePageScene); //Set the scene
+            window.show(); //Make it visible
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+    /**
+     This method is called by the JavaFX framework when the application is launched.
+     It initializes the controllers and scenes, sets up the necessary references, and displays the first scene.*/
+//    public void start(Stage primaryStage) {
+//        this.primaryStage = primaryStage;
 //
+//        try {
+////            LoginController loginController = new LoginController();
+////            Scene firstScene = loadFXML("Login.fxml", loginController);
+////            loginController.setLoginApp(this);
+////
+////            LandingPageController landingPageController = new LandingPageController();
+////            Scene landingPageScene = loadFXML("landing-page.fxml", landingPageController);
+////            landingPageController.setLoginApp(this);
+////            landingPageController.setLoginScene(firstScene);
+////            loginController.setLandingPageScene(landingPageController);
+//
+////            Scene operationsScene = loadFXML("GradePrompt.fxml", landingPageController);
+////            landingPageController.set
+//
+//            primaryStage.setScene(firstScene);
+//            primaryStage.show();
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
-//
 //    }
-
-
+//
+//    public static void main(String[] args) {
+//        launch(args);
+//    }
+//
+//    public Scene loadFXML(String fxml, Object controller) throws Exception {
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+//        loader.setController(controller);
+//        Parent root = loader.load();
+//        return new Scene(root);
+//    }
+//
+//    /** This method sets the scene on the primary stage, which is useful for switching between different scenes*/
+//    public void setScene(Scene scene) {
+//        primaryStage.setScene(scene);
+//    }
 }
+
 

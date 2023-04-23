@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Random;
 
-public class PracticeController {
+public class PracticeController implements SceneController{
 
 
     @FXML
@@ -69,6 +69,46 @@ public class PracticeController {
     private String operatorSymbol;
     @FXML
     private Button xButton;
+
+
+
+
+
+    private LandingPageController landingPageController;
+    private Scene firstScene;
+
+
+    public void setMainApp(LandingPageController landingPageController) {
+        this.landingPageController = landingPageController;
+    }
+
+    public void setFirstScene(Scene firstScene) {
+        this.firstScene = firstScene;
+    }
+
+    @Override
+    public void setText(String text) {
+        intLabel.setText(text);
+    }
+    @Override
+    public Scene getScene() {
+        return intLabel.getScene();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private GiftGlooController controller;
 

@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class GiftGlooController {
+public class GiftGlooController implements SceneController{
     @FXML
     private ImageView snowFlake;
 
@@ -23,12 +23,58 @@ public class GiftGlooController {
 
     private GiftGlooModel glooModel;
 
+    private Login loginModel;
+
     public GiftGlooController() {
         this.model = new PracticeModel();
         this.snowFlakeCount = new Label();
 //        this.controller = new PracticeController();
 
     }
+
+
+
+
+
+    private LandingPageController landingPageController;
+
+    private PracticeController practiceController;
+
+    public void setMainApp(LandingPageController landingPageController) {
+        this.landingPageController = landingPageController;
+    }
+
+//    public void setLoginApp(Login loginApp) {this.loginApp = loginApp;}
+//    public void setLandingPageScene(LandingPageController landingPageController) {this.landingPageScene = landingPageScene; }
+
+    public void setSecondScene(PracticeController practiceController) {
+        this.practiceController = practiceController;
+    }
+
+
+    @Override
+    public void setText(String text) {
+        // This method will be empty in the first controller, since we won't be setting text here
+    }
+
+    @Override
+    public Scene getScene() {
+        return null;
+    }
+
+//    @Override
+//    public Scene getScene() {
+//        return textField.getScene();
+//    }
+
+
+
+
+
+
+//    public void setMainApp(LandingPageController model) {
+//        this.loginModel = model;
+//    }
 
     public GiftGlooModel getGlooModel() {
         return glooModel;
