@@ -9,7 +9,10 @@
 
 <AnchorPane prefHeight="571.0" prefWidth="769.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snowitall.OperationsController">
     <ImageView fitHeight="571.0" fitWidth="769.0">
-        <Image url="@backgroundVideoTutorial.png" />
+        <Image url="@snowBackground.jpg" />
+    </ImageView>
+    <ImageView fitHeight="571.0" fitWidth="769.0">
+        <Image url="@videoTutorialStatic.png" />
     </ImageView>
     <Button fx:id="returnButton" layoutX="7.0" layoutY="490.0" mnemonicParsing="false" onAction="#returntooperationspageButton" opacity="0.0" prefHeight="37.0" prefWidth="97.0" text="return">
         <cursor>
@@ -19,6 +22,6 @@
         <cursor>
             <Cursor fx:constant="OPEN_HAND" />
         </cursor></Button>
-    <WebView fx:id="videoTutorial1" layoutX="15.0" layoutY="186.0" prefHeight="250.0" prefWidth="350.0" />
-    <WebView fx:id="videoTutorial2" layoutX="405.0" layoutY="186.0" prefHeight="250.0" prefWidth="350.0" />
+    <WebView fx:id="videoTutorial1" layoutX="56.0" layoutY="200.0" prefHeight="222.0" prefWidth="270.0" />
+    <WebView fx:id="videoTutorial2" layoutX="448.0" layoutY="200.0" prefHeight="222.0" prefWidth="270.0" />
 </AnchorPane>
