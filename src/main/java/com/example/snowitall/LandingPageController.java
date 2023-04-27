@@ -10,21 +10,16 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LandingPageController implements SceneController{
+public class LandingPageController //implements SceneController
+{
 
     private Login model;
-    private Scene loginScene;
+    private Login loginScene;
     private Scene operationScene;
 
-    private Stage primaryStage;
+    private Login primaryStage;
 
 
-    public void setLoginScene(Scene loginScene) { this.loginScene = loginScene; }
-
-
-//    public void labelSetter() {
-//        model.getGiftGlooController().setLabel(model.getPracticeController().getIntLabel());
-//    }
     @FXML
     private void handleOperations(ActionEvent event) throws IOException {
             Parent root = FXMLLoader.load(getClass().getResource("GradePrompt.fxml"));
@@ -40,12 +35,6 @@ public class LandingPageController implements SceneController{
 //        this.loginApp.setScene(this.operationScene.getScene());
     }
 
-//    public void handleGoToSecondScene(ActionEvent event) {
-//        String text = this.textField.getText();
-//        this.secondScene.setText(text);
-//        this.mainApp.setScene(this.secondScene.getScene());
-//    }
-
     @FXML
     private void handleGrade(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("operationsLandingPage.fxml"));
@@ -59,7 +48,19 @@ public class LandingPageController implements SceneController{
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    private void returntolandingpageButton(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("landing-page.fxml"));
 
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
     @FXML
     private void handleGiftGloo(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GiftGloo.fxml"));
@@ -126,17 +127,12 @@ public class LandingPageController implements SceneController{
     }
 
     /** This method sets the scene on the primary stage, which is useful for switching between different scenes*/
-    public void setScene(Scene scene) {
-        primaryStage.setScene(scene);
+//    public void setScene(Scene scene) {
+//        primaryStage.setScene(scene);
+//    }
+
+    public void setPrimaryStage(Login primaryStage) {
+        this.primaryStage = primaryStage;
     }
 
-    @Override
-    public void setText(String text) {
-
-    }
-
-    @Override
-    public Scene getScene() {
-        return null;
-    }
 }
