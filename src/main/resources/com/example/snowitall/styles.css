@@ -1,0 +1,5 @@
+.rounded-webview {
+    -fx-background-color: #654500;
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+}

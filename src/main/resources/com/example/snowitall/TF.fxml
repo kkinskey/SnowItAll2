@@ -12,15 +12,15 @@
 
 <AnchorPane prefHeight="571.0" prefWidth="769.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snowitall.PracticeController">
     <ImageView fitHeight="571.0" fitWidth="769.0">
-        <Image url="@snowBackground.jpg" />
+        <Image url="@backgrounds/snowBackground.jpg" />
     </ImageView>
     <ImageView fitHeight="571.0" fitWidth="769.0">
-        <Image url="@practiceStatic.png" />
+        <Image url="@backgrounds/practiceStatic.png" />
     </ImageView>
 
     <AnchorPane layoutX="73.0" layoutY="144.0" prefHeight="340.0" prefWidth="623.0">
         <children>
-            <RadioButton fx:id="choiceButtonFive" layoutX="84.0" layoutY="195.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="236.0" text="True">
+            <RadioButton fx:id="choiceButtonFive" layoutX="76.0" layoutY="134.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="236.0" text="True">
                 <font>
                     <Font name="Hiragino Sans W9" size="24.0" />
                 </font>
@@ -28,17 +28,17 @@
                <ToggleGroup fx:id="radioGroup2" />
             </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="choiceButtonSix" layoutX="320.0" layoutY="195.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="236.0" text="False" toggleGroup="$radioGroup2">
+            <RadioButton fx:id="choiceButtonSix" layoutX="313.0" layoutY="134.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="236.0" text="False" toggleGroup="$radioGroup2">
                 <font>
                     <Font name="Hiragino Sans W9" size="24.0" />
                 </font>
             </RadioButton>
-            <Button fx:id="submitButtonTF" disable="true" layoutX="258.0" layoutY="240.0" onAction="#handleRadioSelectionTF" opacity="0.0" text="Submit">
+            <Button fx:id="submitButtonTF" disable="true" layoutX="258.0" layoutY="240.0" onAction="#handleRadioSelectionTF" opacity="0.0" prefHeight="35.0" prefWidth="107.0" text="Submit">
                 <font>
                     <Font name="Hiragino Sans W9" size="24.0" />
                 </font>
             </Button>
-            <Label fx:id="questionText" layoutX="40.0" layoutY="50.0" prefHeight="70.0" prefWidth="544.0">
+            <Label fx:id="questionText" layoutX="78.0" layoutY="50.0" prefHeight="70.0" prefWidth="470.0" visible="false">
                 <font>
                     <Font name="Hiragino Sans W9" size="24.0" />
                 </font>
@@ -46,22 +46,22 @@
 
             <ImageView fx:id="correctAnswerImage" fitHeight="236.0" fitWidth="236.0" layoutX="194.0" layoutY="59.0" preserveRatio="true" visible="false">
                 <image>
-                    <Image url="@GreenCheckMark.png" />
+                    <Image url="@otherImages/GreenCheckMark.png" />
                 </image>
             </ImageView>
 
             <ImageView fx:id="incorrectAnswerImage1" fitHeight="236.0" fitWidth="236.0" layoutX="194.0" layoutY="59.0" preserveRatio="true" visible="false">
                 <image>
-                    <Image url="@RedX.png" />
+                    <Image url="@otherImages/RedX.png" />
                 </image>
             </ImageView>
 
-            <Button fx:id="nextQuestionButton" layoutX="399.0" layoutY="290.0" onAction="#handleNextQuestionButtonTF" text="Next Question" visible="false">
+            <Button fx:id="nextQuestionButton" layoutX="221.0" layoutY="288.0" onAction="#handleNextQuestionButtonTF" opacity="0.0" text="Next Question">
                 <font>
                     <Font name="Hiragino Sans W9" size="24.0" />
                 </font>
             </Button>
-            <Label fx:id="intLabel" layoutX="320.0" prefHeight="49.0" prefWidth="320.0" visible="false">
+            <Label fx:id="intLabel" layoutX="153.0" layoutY="176.0" prefHeight="49.0" prefWidth="320.0" visible="false">
                 <font>
                     <Font name="Hiragino Sans W9" size="20.0" />
                 </font>

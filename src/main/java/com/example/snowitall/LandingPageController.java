@@ -21,6 +21,21 @@ public class LandingPageController implements SceneController{
 
     public void setLoginScene(Scene loginScene) { this.loginScene = loginScene; }
 
+    //used to go from ' GradePrompt.fxml ' back to the main landing page
+    @FXML
+    private void returnToLandingPageButton(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("landing-page.fxml"));
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
 
 //    public void labelSetter() {
 //        model.getGiftGlooController().setLabel(model.getPracticeController().getIntLabel());
@@ -40,6 +55,37 @@ public class LandingPageController implements SceneController{
 //        this.loginApp.setScene(this.operationScene.getScene());
     }
 
+    @FXML
+    private void handleMeasurements(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("msGradePrompt.fxml"));
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setTitle("Snow It All");
+        stage.setScene(scene);
+        stage.show();
+//        this.loginApp.setScene(this.operationScene.getScene());
+    }
+
+    @FXML
+    private void handleGeometry(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("gyGradePrompt.fxml"));
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setTitle("Snow It All");
+        stage.setScene(scene);
+        stage.show();
+//        this.loginApp.setScene(this.operationScene.getScene());
+    }
+
+
 //    public void handleGoToSecondScene(ActionEvent event) {
 //        String text = this.textField.getText();
 //        this.secondScene.setText(text);
@@ -49,6 +95,35 @@ public class LandingPageController implements SceneController{
     @FXML
     private void handleGrade(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("operationsLandingPage.fxml"));
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setTitle("Snow It All");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void handleMsGrade(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("measurementsLandingPage.fxml"));
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setTitle("Snow It All");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+    @FXML
+    private void handleGyGrade(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("geometryLandingPage.fxml"));
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

@@ -11,10 +11,10 @@
 
 <AnchorPane prefHeight="571.0" prefWidth="769.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snowitall.PracticeController">
     <ImageView fitHeight="571.0" fitWidth="769.0">
-        <Image url="@snowBackground.jpg" />
+        <Image url="@backgrounds/snowBackground.jpg" />
     </ImageView>
     <ImageView fitHeight="571.0" fitWidth="769.0">
-        <Image url="@practiceStatic.png" />
+        <Image url="@backgrounds/practiceStatic.png" />
     </ImageView>
 
     <AnchorPane layoutX="73.0" layoutY="144.0" prefHeight="340.0" prefWidth="623.0">
@@ -24,7 +24,7 @@
                     <Font name="Hiragino Sans W9" size="24.0" />
                 </font>
             </Button>
-            <Label fx:id="questionText" layoutX="74.0" layoutY="49.0" prefHeight="70.0" prefWidth="477.0">
+            <Label fx:id="questionText" layoutX="90.0" layoutY="36.0" prefHeight="70.0" prefWidth="451.0">
                 <font>
                     <Font name="Hiragino Sans W9" size="24.0" />
                 </font>
@@ -36,19 +36,19 @@
 
             <ImageView fx:id="correctAnswerImage" fitHeight="236.0" fitWidth="236.0" layoutX="194.0" layoutY="59.0" preserveRatio="true" visible="false">
                 <image>
-                    <Image url="@GreenCheckMark.png" />
+                    <Image url="@otherImages/GreenCheckMark.png" />
                 </image>
             </ImageView>
 
             <ImageView fx:id="incorrectAnswerImage1" fitHeight="236.0" fitWidth="236.0" layoutX="194.0" layoutY="59.0" preserveRatio="true" visible="false">
                 <image>
-                    <Image url="@RedX.png" />
+                    <Image url="@otherImages/RedX.png" />
                 </image>
             </ImageView>
 
-            <ImageView fx:id="giftAlert" fitHeight="269.0" fitWidth="510.0" layoutX="81.0" layoutY="71.0" preserveRatio="true" visible="false">
+            <ImageView fx:id="giftAlert" fitHeight="269.0" fitWidth="510.0" layoutX="69.0" layoutY="14.0" preserveRatio="true" visible="false">
                 <image>
-                    <Image url="@GiftAlert.png" />
+                    <Image url="@otherImages/GiftAlert.png" />
                 </image>
             </ImageView>
 
@@ -61,12 +61,12 @@
             </cursor>
             </Button>
 
-            <Button fx:id="nextQuestionButton" layoutX="399.0" layoutY="290.0" onAction="#handleNextFIBQuestionButton" text="Next Question" visible="false">
+            <Button fx:id="nextQuestionButton" layoutX="220.0" layoutY="288.0" onAction="#handleNextFIBQuestionButton" text="Next Question" visible="false">
                 <font>
                     <Font name="Hiragino Sans W9" size="24.0" />
                 </font>
             </Button>
-            <Label fx:id="intLabel" layoutX="320.0" prefHeight="49.0" prefWidth="320.0" visible="false">
+            <Label fx:id="intLabel" layoutX="160.0" layoutY="84.0" prefHeight="49.0" prefWidth="320.0">
                 <font>
                     <Font name="Hiragino Sans W9" size="18.0" />
                 </font>
