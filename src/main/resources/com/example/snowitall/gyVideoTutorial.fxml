@@ -9,19 +9,20 @@
 <?import javafx.scene.web.WebView?>
 
 <AnchorPane prefHeight="571.0" prefWidth="769.0" style="-fx-background-color: lightblue;"
-            stylesheets="@styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.snowitall.OperationsController">
+            stylesheets="@styles.css"
+            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.snowitall.GeometryController">
     <ImageView fitHeight="571.0" fitWidth="769.0">
         <Image url="@backgrounds/snowBackground.jpg" />
     </ImageView>
     <ImageView fitHeight="571.0" fitWidth="769.0">
         <Image url="@backgrounds/videoTutorialStatic.png" />
     </ImageView>
-    <Button fx:id="returnButton" layoutX="7.0" layoutY="490.0" mnemonicParsing="false" onAction="#returntooperationspageButton" opacity="0.0" prefHeight="37.0" prefWidth="97.0" text="return">
+    <Button fx:id="returnButton" layoutX="7.0" layoutY="490.0" mnemonicParsing="false" onAction="#returnToGeometryButton" opacity="0.0" prefHeight="37.0" prefWidth="97.0" text="return">
         <cursor>
             <Cursor fx:constant="OPEN_HAND" />
         </cursor></Button>
-    <Button fx:id="nextButton" layoutX="672.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleNextButTontoPractice" opacity="0.0" prefHeight="37.0" prefWidth="91.0" text="next">
+    <Button fx:id="nextButton" layoutX="672.0" layoutY="490.0" mnemonicParsing="false" opacity="0.0" prefHeight="37.0" prefWidth="91.0" text="next">
         <cursor>
             <Cursor fx:constant="OPEN_HAND" />
         </cursor></Button>

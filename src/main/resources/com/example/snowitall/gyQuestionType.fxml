@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="342.0" prefWidth="600.0"
             xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.snowitall.OperationsController">
+            fx:controller="com.example.snowitall.GeometryController">
     <children>
         <ImageView fitHeight="390.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -26,7 +26,7 @@
             <cursor>
                 <Cursor fx:constant="OPEN_HAND" />
             </cursor></Button>
-        <Button layoutY="284.0" mnemonicParsing="false" onAction="#returntooperationspageButton" opacity="0.0" prefHeight="53.0" prefWidth="88.0" text="return">
+        <Button layoutY="284.0" mnemonicParsing="false" onAction="#returnToGeometryButton" opacity="0.0" prefHeight="53.0" prefWidth="88.0" text="return">
             <cursor>
                 <Cursor fx:constant="OPEN_HAND" />
             </cursor>
