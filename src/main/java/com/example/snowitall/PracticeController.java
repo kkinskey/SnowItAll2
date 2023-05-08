@@ -13,7 +13,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Random;
 
-public class PracticeController {
+public class PracticeController implements{
+
+
     @FXML
     private Label questionText;
     @FXML
@@ -24,14 +26,17 @@ public class PracticeController {
     private RadioButton choiceButtonThree;
     @FXML
     private RadioButton choiceButtonFour;
+
     @FXML
     private RadioButton choiceButtonFive;
+
     @FXML
     private RadioButton choiceButtonSix;
     @FXML
     public Button submitButton;
     @FXML
     public Button submitButtonTF;
+
     @FXML
     public Button submitButtonFIB;
     @FXML
@@ -42,12 +47,16 @@ public class PracticeController {
     public Button nextButton;
     @FXML
     public ToggleGroup radioGroup;
+
     @FXML
     public ToggleGroup radioGroup2;
+
     @FXML
     private ImageView correctAnswerImage;
+
     @FXML
     private ImageView incorrectAnswerImage1;
+
     @FXML
     private ImageView giftAlert;
     @FXML
@@ -56,9 +65,53 @@ public class PracticeController {
     private GiftGlooModel gift;
     @FXML
     private TextField answer;
+
     private String operatorSymbol;
     @FXML
     private Button xButton;
+
+
+
+
+
+
+
+    private LandingPageController landingPageController;
+    private Scene firstScene;
+
+
+    public void setMainApp(LandingPageController landingPageController) {
+        this.landingPageController = landingPageController;
+    }
+
+    public void setFirstScene(Scene firstScene) {
+        this.firstScene = firstScene;
+    }
+
+    @Override
+    public void setText(String text) {
+        intLabel.setText(text);
+    }
+    @Override
+    public Scene getScene() {
+        return intLabel.getScene();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     private GiftGlooController controller;
 
     public GiftGlooModel getGift() {
@@ -103,7 +156,7 @@ public class PracticeController {
     }
 
 
-    // method that generates a string to display the multiple choice question we are asking
+    // method that generates a string to display the mulitple choice question we are asking
     public String toString(){
 
         String questionText = "What is " + model.getNum1() + " + " + model.getNum2() + "?";
@@ -470,6 +523,34 @@ public class PracticeController {
 
     }
 
+    @FXML
+    private void handleNextButtonToTF(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("TF.fxml"));
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    @FXML
+    private void handleNextButtonToFIB(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("FIB.fxml"));
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
 
     public void FillInBlankQuestionGenerator() {
         randomQuestionGenerator();
@@ -708,6 +789,9 @@ public void additionQuestionGenerator()
         stage.show();
 
     }
+
+//GEOMETRY STUFF STARTS HERE
+
 
 
 
