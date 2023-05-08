@@ -1,0 +1,12 @@
+operations to video tutorial to practice (mc)
+change to video tutorial to questiontype DONE
+
+practice to multiple choice to mastery test
+change to multiple choice to true false DONE
+
+practice to true false to mastery test
+change to true false to fill in the blank DONE
+
+practice to fill in the blank delete next button DONE
+
+geometry to practice to question type

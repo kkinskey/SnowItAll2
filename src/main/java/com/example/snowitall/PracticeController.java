@@ -13,8 +13,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Random;
 
-public class PracticeController //implements SceneController
-{
+public class PracticeController implements SceneController{
+
+
     @FXML
     private Label questionText;
     @FXML
@@ -25,14 +26,17 @@ public class PracticeController //implements SceneController
     private RadioButton choiceButtonThree;
     @FXML
     private RadioButton choiceButtonFour;
+
     @FXML
     private RadioButton choiceButtonFive;
+
     @FXML
     private RadioButton choiceButtonSix;
     @FXML
     public Button submitButton;
     @FXML
     public Button submitButtonTF;
+
     @FXML
     public Button submitButtonFIB;
     @FXML
@@ -43,12 +47,16 @@ public class PracticeController //implements SceneController
     public Button nextButton;
     @FXML
     public ToggleGroup radioGroup;
+
     @FXML
     public ToggleGroup radioGroup2;
+
     @FXML
     private ImageView correctAnswerImage;
+
     @FXML
     private ImageView incorrectAnswerImage1;
+
     @FXML
     private ImageView giftAlert;
     @FXML
@@ -63,6 +71,11 @@ public class PracticeController //implements SceneController
     private Button xButton;
 
 
+
+
+
+
+
     private LandingPageController landingPageController;
     private Scene firstScene;
 
@@ -75,14 +88,29 @@ public class PracticeController //implements SceneController
         this.firstScene = firstScene;
     }
 
-//    @Override
-//    public void setText(String text) {
-//        intLabel.setText(text);
-//    }
-//    @Override
-//    public Scene getScene() {
-//        return intLabel.getScene();
-//    }
+    @Override
+    public void setText(String text) {
+        intLabel.setText(text);
+    }
+    @Override
+    public Scene getScene() {
+        return intLabel.getScene();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private GiftGlooController controller;
 
@@ -495,6 +523,34 @@ public class PracticeController //implements SceneController
 
     }
 
+    @FXML
+    private void handleNextButtonToTF(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("TF.fxml"));
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    @FXML
+    private void handleNextButtonToFIB(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("FIB.fxml"));
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
 
     public void FillInBlankQuestionGenerator() {
         randomQuestionGenerator();
@@ -526,6 +582,7 @@ public class PracticeController //implements SceneController
             intLabel.setVisible(true);
             nextQuestionButton.setVisible(true);
         }
+
     }
 
     @FXML
@@ -732,6 +789,9 @@ public void additionQuestionGenerator()
         stage.show();
 
     }
+
+//GEOMETRY STUFF STARTS HERE
+
 
 
 
