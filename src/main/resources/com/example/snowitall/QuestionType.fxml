@@ -5,11 +5,13 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="342.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snowitall.OperationsController">
+<AnchorPane prefHeight="342.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.snowitall.OperationsController">
     <children>
         <ImageView fitHeight="390.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@QuestionType.png" />
+                <Image url="@backgrounds/QuestionType.png" />
             </image>
         </ImageView>
         <Button layoutX="189.0" layoutY="119.0" mnemonicParsing="false" onAction="#handleMC" opacity="0.0" prefHeight="42.0" prefWidth="223.0" text="Multiple Choice">
@@ -27,7 +29,8 @@
         <Button layoutY="284.0" mnemonicParsing="false" onAction="#returntooperationspageButton" opacity="0.0" prefHeight="53.0" prefWidth="88.0" text="return">
             <cursor>
                 <Cursor fx:constant="OPEN_HAND" />
-            </cursor></Button>
+            </cursor>
+        </Button>
     </children>
 
 </AnchorPane>

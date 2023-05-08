@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="571.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snowitall.GeoPracController">
+    <ImageView fitHeight="571.0" fitWidth="769.0">
+        <Image url="@backgrounds/snowBackground.jpg" />
+    </ImageView>
+    <ImageView fitHeight="571.0" fitWidth="769.0">
+        <Image url="@backgrounds/FibStatic.png" />
+    </ImageView>
+
+    <AnchorPane layoutX="73.0" layoutY="144.0" prefHeight="340.0" prefWidth="623.0">
+        <children>
+            <Button fx:id="submitButtonFIB" layoutX="249.0" layoutY="237.0" onAction="#handleFIBsubmitButton" opacity="0.0" prefHeight="37.0" prefWidth="117.0" text="Submit">
+                <font>
+                    <Font name="Hiragino Sans W9" size="24.0" />
+                </font>
+            </Button>
+            <Label fx:id="questionText" layoutX="100.0" layoutY="24.0" prefHeight="70.0" prefWidth="431.0">
+                <font>
+                    <Font name="Hiragino Sans W9" size="24.0" />
+                </font>
+            </Label>
+            <TextField fx:id="answer" layoutX="106.0" layoutY="166.0" prefHeight="70.0" prefWidth="420.0" promptText="Enter answer">
+                <font>
+                    <Font name="Hiragino Sans W9" size="24.0" />
+                </font></TextField>
+
+            <ImageView fx:id="correctAnswerImage" fitHeight="236.0" fitWidth="236.0" layoutX="194.0" layoutY="59.0" preserveRatio="true" visible="false">
+                <image>
+                    <Image url="@otherImages/GreenCheckMark.png" />
+                </image>
+            </ImageView>
+
+            <ImageView fx:id="incorrectAnswerImage1" fitHeight="236.0" fitWidth="236.0" layoutX="194.0" layoutY="59.0" preserveRatio="true" visible="false">
+                <image>
+                    <Image url="@otherImages/RedX.png" />
+                </image>
+            </ImageView>
+
+            <ImageView fx:id="giftAlert" fitHeight="269.0" fitWidth="510.0" layoutX="69.0" layoutY="14.0" preserveRatio="true" visible="false">
+                <image>
+                    <Image url="@otherImages/GiftAlert.png" />
+                </image>
+            </ImageView>
+
+            <Button layoutX="82.0" layoutY="71.0" onAction="#handleXButton" text="X" visible="false" fx:id="xButton">
+                <font>
+                    <Font name="Hiragino Sans W9" size="24.0" />
+                </font>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+
+            <Button fx:id="nextQuestionButton" layoutX="220.0" layoutY="288.0" onAction="#handleNextFIBQuestionButton" text="Next Question" visible="false">
+                <font>
+                    <Font name="Hiragino Sans W9" size="24.0" />
+                </font>
+            </Button>
+            <Label fx:id="intLabel" layoutX="148.0" layoutY="59.0" prefHeight="49.0" prefWidth="320.0">
+                <font>
+                    <Font name="Hiragino Sans W9" size="18.0" />
+                </font>
+            </Label>
+            <AnchorPane layoutX="254.0" layoutY="94.0" prefHeight="70.0" prefWidth="108.0">
+              <ImageView fx:id="hexagon" fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="13.0">
+                  <image>
+                      <Image url="@shapes/hexagon.png" />
+                  </image>
+              </ImageView>
+              <ImageView fx:id="nonagon" fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="13.0">
+                  <image>
+                      <Image url="@shapes/nonagon.png" />
+                  </image>
+              </ImageView>
+              <ImageView fx:id="octagon" fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="13.0">
+                  <image>
+                      <Image url="@shapes/octagon.png" />
+                  </image>
+              </ImageView>
+              <ImageView fx:id="pentagon" fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="13.0">
+                  <image>
+                      <Image url="@shapes/pentagon.png" />
+                  </image>
+              </ImageView>
+              <ImageView fx:id="square" fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="13.0">
+                  <image>
+                      <Image url="@shapes/square.png" />
+                  </image>
+              </ImageView>
+              <ImageView fx:id="triangle" fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="13.0">
+                  <image>
+                      <Image url="@shapes/triangle.png" />
+                  </image>
+              </ImageView>
+              <ImageView fx:id="circle" fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="13.0">
+                  <image>
+                      <Image url="@shapes/circle.png" />
+                  </image>
+              </ImageView>
+              <ImageView fx:id="heptagon" fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="13.0">
+                  <image>
+                      <Image url="@shapes/heptagon.png" />
+                  </image>
+              </ImageView>
+          </AnchorPane>
+        </children>
+    </AnchorPane>
+
+
+    <Button fx:id="returnButton" layoutX="7.0" layoutY="490.0" mnemonicParsing="false" onAction="#returntoQuestionType" opacity="0.0" prefHeight="37.0" prefWidth="97.0" text="return">
+        <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+        </cursor></Button>
+    <Button layoutX="30.0" layoutY="46.0" mnemonicParsing="false" onAction="#returntolandingpageButton" prefHeight="70.0" prefWidth="108.0" text="Gift Gloo" />
+
+</AnchorPane>

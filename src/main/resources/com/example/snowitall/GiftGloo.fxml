@@ -10,7 +10,7 @@
         <children>
         <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@giftgloo.png" />
+                <Image url="@backgrounds/giftgloo.png" />
             </image>
         </ImageView>
             <Label fx:id="snowFlakeCount" layoutX="234.0" layoutY="85.0" prefHeight="49.0" prefWidth="320.0" visible="true">

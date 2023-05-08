@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LandingPageController{
+public class LandingPageController implements SceneController{
 
     private Login model;
     private Scene loginScene;
@@ -205,13 +205,13 @@ public class LandingPageController{
         primaryStage.setScene(scene);
     }
 
-//    @Override
-//    public void setText(String text) {
-//
-//    }
-//
-//    @Override
-//    public Scene getScene() {
-//        return null;
-//    }
+    @Override
+    public void setText(String text) {
+
+    }
+
+    @Override
+    public Scene getScene() {
+        return null;
+    }
 }

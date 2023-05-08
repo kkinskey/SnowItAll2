@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="342.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.snowitall.MeasurementsController">
+    <children>
+        <ImageView fitHeight="390.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@backgrounds/QuestionType.png" />
+            </image>
+        </ImageView>
+        <Button layoutX="189.0" layoutY="119.0" mnemonicParsing="false" onAction="#handleMC" opacity="0.0" prefHeight="42.0" prefWidth="223.0" text="Multiple Choice">
+            <cursor>
+                <Cursor fx:constant="OPEN_HAND" />
+            </cursor></Button>
+        <Button layoutX="188.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleTF" opacity="0.0" prefHeight="42.0" prefWidth="223.0" text="True/False">
+            <cursor>
+                <Cursor fx:constant="OPEN_HAND" />
+            </cursor></Button>
+        <Button layoutX="189.0" layoutY="263.0" mnemonicParsing="false" onAction="#handleFIB" opacity="0.0" prefHeight="42.0" prefWidth="223.0" text="Fill in the Blank">
+            <cursor>
+                <Cursor fx:constant="OPEN_HAND" />
+            </cursor></Button>
+        <Button layoutY="284.0" mnemonicParsing="false" onAction="#returnToMeasurementsButton" opacity="0.0" prefHeight="53.0" prefWidth="88.0" text="return">
+            <cursor>
+                <Cursor fx:constant="OPEN_HAND" />
+            </cursor>
+        </Button>
+    </children>
+
+</AnchorPane>

@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Random;
 
-public class PracticeController implements{
+public class PracticeController implements SceneController{
 
 
     @FXML

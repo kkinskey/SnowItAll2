@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.snowitall.MeasurementsController">
+
+    <children>
+        <ImageView fitHeight="485.0" fitWidth="850.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@backgrounds/measurementsLandingPageImg.png" />
+            </image>
+        </ImageView>
+        <Button layoutX="291.0" layoutY="177.0" mnemonicParsing="false" onAction="#handleVideoTutorial" opacity="0.0" prefHeight="42.0" prefWidth="270.0" text="videoTutorial">
+            <cursor>
+                <Cursor fx:constant="OPEN_HAND" />
+            </cursor></Button>
+        <Button layoutX="20.0" layoutY="405.0" mnemonicParsing="false" onAction="#returnToLandingPageButton" opacity="0.0" prefHeight="67.0" prefWidth="88.0" text="return">
+            <cursor>
+                <Cursor fx:constant="OPEN_HAND" />
+            </cursor></Button>
+        <Button layoutX="288.0" layoutY="379.0" mnemonicParsing="false" onAction="#handleMasteryTestButton" opacity="0.0" prefHeight="42.0" prefWidth="270.0" text="masteryTest">
+            <cursor>
+                <Cursor fx:constant="OPEN_HAND" />
+            </cursor></Button>
+        <Button layoutX="290.0" layoutY="277.0" mnemonicParsing="false" onAction="#handlePracticeButton" opacity="0.0" prefHeight="42.0" prefWidth="270.0" text="practice">
+            <cursor>
+                <Cursor fx:constant="OPEN_HAND" />
+            </cursor></Button>
+    </children>
+
+</AnchorPane>

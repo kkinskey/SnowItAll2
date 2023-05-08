@@ -1,86 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<!--<?xml version="1.0" encoding="UTF-8"?>-->
-<!--<?import javafx.scene.control.*?>-->
-<!--<?import javafx.scene.layout.*?>-->
-<!--<?import javafx.scene.text.Font?>-->
-<!--<AnchorPane style="-fx-background-image: url('src/main/resources/com/example/snowitall//image1.jpg'); -fx-background-size: cover;" fx:id="root" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snowitall.LoginController">-->
-<!--    <children>-->
-<!--        <Label fx:id="titleLabel" layoutX="72.0" layoutY="74.0" text="Login" textAlignment="CENTER" textFill="#2a2a2a">-->
-<!--            <font>-->
-<!--                <Font name="System Bold" size="24.0" />-->
-<!--            </font>-->
-<!--        </Label>-->
-<!--        <TextField fx:id="usernameField" layoutX="107.0" layoutY="126.0" promptText="Username" />-->
-<!--        <PasswordField fx:id="passwordField" layoutX="107.0" layoutY="159.0" promptText="Password" />-->
-<!--        <Button fx:id="enterButton" layoutX="160.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleLogin" text="Log In" />-->
-<!--        <Label fx:id="errorLabel" layoutX="105.0" layoutY="184.0" prefHeight="17.0" prefWidth="190.0" textAlignment="CENTER" textFill="#ff0000" />-->
-<!--    </children>-->
-<!--</AnchorPane>-->
-
-<AnchorPane prefHeight="559.0" prefWidth="827.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snowitall.LoginController">
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snowitall.LoginController">
     <children>
-        <ImageView fitHeight="673.0" fitWidth="827.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="409.0" fitWidth="560.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@LoginPageImages/loginpage-background-img.png" />
             </image>
         </ImageView>
-        <AnchorPane fx:id="titleAnchorPane" layoutX="174.0" layoutY="155.0" prefHeight="149.0" prefWidth="211.0" AnchorPane.bottomAnchor="100.00000000000003" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="170.66666666666666" AnchorPane.topAnchor="155.0">
+        <AnchorPane fx:id="titleAnchorPane" layoutX="178.0" layoutY="125.0" prefHeight="200.0" prefWidth="335.0">
             <children>
-                <ImageView fitHeight="126.0" fitWidth="326.0" layoutX="58.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="89.33333333333337" AnchorPane.leftAnchor="58.0" AnchorPane.rightAnchor="99.0" AnchorPane.topAnchor="89.0">
+                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="7.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@LoginPageImages/titleWithLoginSignup-img.png" />
                     </image>
                 </ImageView>
-                <Button fx:id="openLoginBlock" layoutX="73.0" layoutY="158.0" mnemonicParsing="false" onAction="#loginBlock" opacity="0.0" prefHeight="50.0" prefWidth="126.0" text="Button" />
-                <Button fx:id="openSignUpBlock" layoutX="230.0" layoutY="158.0" mnemonicParsing="false" onAction="#signUpBlock" opacity="0.0" prefHeight="50.0" prefWidth="161.0" text="Button" />
+                <Button fx:id="openLoginBlock" layoutX="21.0" layoutY="106.0" mnemonicParsing="false" onAction="#loginBlock" opacity="0.0" prefHeight="32.0" prefWidth="75.0" text="Button" />
+                <Button fx:id="openSignUpBlock" layoutX="116.0" layoutY="101.0" mnemonicParsing="false" onAction="#signUpBlock" opacity="0.0" prefHeight="32.0" prefWidth="93.0" text="Button" />
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="loginAnchorPane" layoutX="135.0" layoutY="93.0" prefHeight="218.0" prefWidth="289.0" visible="false" AnchorPane.bottomAnchor="93.0" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="136.0" AnchorPane.topAnchor="93.0">
+        <AnchorPane fx:id="loginAnchorPane" layoutX="138.0" layoutY="117.0" prefHeight="200.0" prefWidth="372.0" visible="false">
             <children>
                 <ImageView fx:id="userLogin" fitHeight="191.0" fitWidth="311.0" layoutX="14.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@LoginPageImages/oldUserLogInImg.png" />
                     </image>
                 </ImageView>
-                <Button fx:id="userSubmitLogin" layoutX="99.0" layoutY="167.0" mnemonicParsing="false" onAction="#handleUserLogin" opacity="0.0" prefHeight="32.0" prefWidth="101.0" text="Button" />
-                <TextField fx:id="usernameField" layoutX="120.0" layoutY="66.0" opacity="0.99" prefHeight="17.0" prefWidth="126.0" />
-                <TextField fx:id="passwordField" layoutX="120.0" layoutY="112.0" opacity="0.99" prefHeight="17.0" prefWidth="126.0" />
-                <ImageView fx:id="incorrectCreds" fitHeight="149.0" fitWidth="266.0" layoutX="60.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                <Button fx:id="userSubmitLogin" layoutX="99.0" layoutY="163.0" mnemonicParsing="false" onAction="#handleUserLogin" opacity="0.0" prefHeight="32.0" prefWidth="101.0" text="Button" />
+                <TextField fx:id="usernameField" layoutX="120.0" layoutY="66.0" prefHeight="17.0" prefWidth="126.0" />
+                <TextField fx:id="passwordField" layoutX="120.0" layoutY="112.0" prefHeight="17.0" prefWidth="126.0" />
+                <ImageView fx:id="incorrectCreds" fitHeight="149.0" fitWidth="266.0" pickOnBounds="true" preserveRatio="true" visible="false">
                     <image>
                         <Image url="@LoginPageImages/errorPenguin.png" />
                     </image>
                 </ImageView>
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="newUserAnchorPane" layoutX="97.0" layoutY="40.0" prefHeight="278.0" prefWidth="381.0" visible="false">
+        <AnchorPane fx:id="newUserAnchorPane" prefHeight="409.0" prefWidth="553.0" visible="false">
             <children>
-                <ImageView fitHeight="254.0" fitWidth="266.0" layoutX="58.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="254.0" fitWidth="266.0" layoutX="156.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@LoginPageImages/newUserSignUpImg.png" />
                     </image>
                 </ImageView>
-                <Button fx:id="newUserSubmitButton" layoutX="134.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleNewUserLogin" opacity="0.0" prefHeight="25.0" prefWidth="109.0" text="Button" />
-                <TextField fx:id="newUsernameField" layoutX="159.0" layoutY="105.0" opacity="0.9999" prefHeight="17.0" prefWidth="126.0">
+                <Button fx:id="newUserSubmitButton" layoutX="240.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleNewUserLogin" opacity="0.0" prefHeight="25.0" prefWidth="93.0" text="Button" />
+                <TextField fx:id="newUsernameField" layoutX="258.0" layoutY="161.0" opacity="0.9999" prefHeight="17.0" prefWidth="126.0">
 
                 </TextField>
-                <TextField fx:id="newPasswordField" layoutX="159.0" layoutY="152.0" opacity="0.9999" prefHeight="17.0" prefWidth="126.0">
+                <TextField fx:id="newPasswordField" layoutX="258.0" layoutY="208.0" opacity="0.9999" prefHeight="17.0" prefWidth="126.0">
 
                 </TextField>
-                <Button fx:id="leftSelectArrow" layoutX="134.0" layoutY="207.0" mnemonicParsing="false" onAction="#switchAviBack" opacity="0.0" prefHeight="32.0" prefWidth="24.0" text="Button" />
-                <Button fx:id="rightSelectArrow" layoutX="222.0" layoutY="207.0" mnemonicParsing="false" onAction="#switchAviForward" opacity="0.0" prefHeight="32.0" prefWidth="24.0" text="Button" />
+                <Button fx:id="leftSelectArrow" layoutX="228.0" layoutY="262.0" mnemonicParsing="false" onAction="#switchAviBack" opacity="0.0" prefHeight="32.0" prefWidth="24.0" text="Button" />
+                <Button fx:id="rightSelectArrow" layoutX="321.0" layoutY="262.0" mnemonicParsing="false" onAction="#switchAviForward" opacity="0.0" prefHeight="32.0" prefWidth="24.0" text="Button" />
                 <ImageView fx:id="dupCreds" fitHeight="165.0" fitWidth="281.0" layoutX="146.0" pickOnBounds="true" preserveRatio="true" visible="false">
                     <image>
                         <Image url="@LoginPageImages/dupCredPenguin.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="164.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
                 </ImageView>
             </children>
         </AnchorPane>
     </children>
 </AnchorPane>
+
+        <!--<?xml version="1.0" encoding="UTF-8"?>-->
+
+
+        <!--<?import javafx.scene.control.*?>-->
+        <!--<?import javafx.scene.layout.*?>-->
+
+        <!--<?import javafx.scene.text.Font?>-->
+        <!--<AnchorPane style="-fx-background-image: url('src/main/resources/com/example/snowitall//image1.jpg'); -fx-background-size: cover;" fx:id="root" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snowitall.LoginController">-->
+        <!--    <children>-->
+        <!--        <Label fx:id="titleLabel" layoutX="72.0" layoutY="74.0" text="Login" textAlignment="CENTER" textFill="#2a2a2a">-->
+        <!--            <font>-->
+        <!--                <Font name="System Bold" size="24.0" />-->
+        <!--            </font>-->
+        <!--        </Label>-->
+        <!--        <TextField fx:id="usernameField" layoutX="107.0" layoutY="126.0" promptText="Username" />-->
+        <!--        <PasswordField fx:id="passwordField" layoutX="107.0" layoutY="159.0" promptText="Password" />-->
+        <!--        <Button fx:id="enterButton" layoutX="160.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleLogin" text="Log In" />-->
+        <!--        <Label fx:id="errorLabel" layoutX="105.0" layoutY="184.0" prefHeight="17.0" prefWidth="190.0" textAlignment="CENTER" textFill="#ff0000" />-->
+        <!--    </children>-->
+        <!--</AnchorPane>-->
