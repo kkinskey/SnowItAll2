@@ -233,7 +233,7 @@
         <cursor>
             <Cursor fx:constant="OPEN_HAND" />
         </cursor></Button>
-    <Button fx:id="nextButton" layoutX="672.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleNextButtonToMasteryTest" opacity="0.0" prefHeight="37.0" prefWidth="91.0" text="next">
+    <Button fx:id="nextButton" layoutX="672.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleNextButtonToTF" opacity="0.0" prefHeight="37.0" prefWidth="91.0" text="next">
         <cursor>
             <Cursor fx:constant="OPEN_HAND" />
         </cursor></Button>

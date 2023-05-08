@@ -74,6 +74,8 @@ public class PracticeController implements SceneController{
 
 
 
+
+
     private LandingPageController landingPageController;
     private Scene firstScene;
 
@@ -521,6 +523,34 @@ public class PracticeController implements SceneController{
 
     }
 
+    @FXML
+    private void handleNextButtonToTF(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("TF.fxml"));
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    @FXML
+    private void handleNextButtonToFIB(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("FIB.fxml"));
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
 
     public void FillInBlankQuestionGenerator() {
         randomQuestionGenerator();
@@ -759,6 +789,9 @@ public void additionQuestionGenerator()
         stage.show();
 
     }
+
+//GEOMETRY STUFF STARTS HERE
+
 
 
 
