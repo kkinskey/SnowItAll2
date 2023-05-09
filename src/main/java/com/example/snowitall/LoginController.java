@@ -1,5 +1,6 @@
 package com.example.snowitall;
 
+import javafx.beans.binding.StringBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,12 +16,11 @@ import javafx.stage.Stage;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import java.sql.*;
+
+import java.util.Random;
 public class LoginController {
     //Labels for front login page
-//    @FXML
-//    private Button openLoginBlock;
-//    @FXML
-//    private Button openSignUpBlock;
     @FXML
     private AnchorPane loginAnchorPane;
     @FXML
@@ -92,7 +92,7 @@ public class LoginController {
 
         // Perform login validation here
 
-        if (username.equals("admin") && password.equals("password")) {
+        if (queryUsernameAndPassword(username, password)) {
             // Login successful, do something here
             System.out.println("Login successful!");
 
@@ -125,25 +125,155 @@ public class LoginController {
     }
     @FXML
     public void handleNewUserLogin(ActionEvent event) throws Exception {
-        // Load the FXML file for the new window
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("landing-page.fxml"));
-        Parent root = loader.load();
+        String username = newUsernameField.getText();
+        String password = newPasswordField.getText();
 
-        // Get the current stage from the button's scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        if (queryUsername(username)) {
+            System.out.println("Duplicate Username!");
 
-        // Set the new scene on the stage
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("SnowItAll");
+            incorrectCreds.setVisible(true);
+            Timer timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    incorrectCreds.setVisible(false);
+                }
+            }, 3000);
+        }
 
-        model.goToLandingPage(event);
+        else
+        {
+            pushNewCredentials(username, password);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("landing-page.fxml"));
+            Parent root = loader.load();
+
+            // Get the current stage from the button's scene
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Set the new scene on the stage
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("SnowItAll");
+
+            model.goToLandingPage(event);
+        }
     }
+
 
     public void switchAviBack(ActionEvent actionEvent) {
 
     }
 
     public void switchAviForward(ActionEvent actionEvent) {
+    }
+
+    public Boolean queryUsernameAndPassword(String username, String password) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        }
+        catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://snowitall-db.cyvluizuepzk.us-east-1.rds.amazonaws.com:3306/SnowItAll?user=admin&password=password&useSSL=false");
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Username, Password FROM User");
+
+            while (rs.next()) {
+                String dbUsername = rs.getString("Username");
+                String dbPassword = rs.getString("Password");
+
+                if (username.equals(dbUsername) && password.equals(dbPassword)) {
+                    return true;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    public Boolean queryUsername(String username) {
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://snowitall-db.cyvluizuepzk.us-east-1.rds.amazonaws.com:3306/SnowItAll?user=admin&password=password&useSSL=false");
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Username FROM User");
+
+            while (rs.next()) {
+                String dbUsername = rs.getString("Username");
+
+                if (username == dbUsername) {
+                    return true;
+                }
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    public void pushNewCredentials(String username, String password) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        }
+        catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://snowitall-db.cyvluizuepzk.us-east-1.rds.amazonaws.com:3306/SnowItAll?user=admin&password=password&useSSL=false");
+            PreparedStatement stmt = conn.prepareStatement("INSERT INTO User (UserID, Username, Password, GradeLevel, Progress, SnowflakeCounter, Avatar, OwnedRewards) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"); // replace with your SQL query
+
+            stmt.setInt(1, setUserID()); //calls setUserID
+            stmt.setString(2, username);
+            stmt.setString(3, password);
+            stmt.setInt(4, 1); //GradeLevel
+            stmt.setDouble(5, 0.0); //Progress
+            stmt.setInt(6, 0); //SnowflakeCounter
+            stmt.setString(7, ""); //Avatar
+            stmt.setString(8, "NONE"); //Owned Rewards
+
+            stmt.executeUpdate();
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public int setUserID() {
+        Random rand = new Random();
+        int userID = rand.nextInt(10000);;
+        while (queryUserID(userID)) {
+            userID = rand.nextInt(10000);
+        }
+        return userID;
+    }
+
+    private boolean queryUserID(int userID) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        }
+        catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://snowitall-db.cyvluizuepzk.us-east-1.rds.amazonaws.com:3306/SnowItAll?user=admin&password=password&useSSL=false");
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT UserID FROM User");
+
+            while (rs.next()) {
+                int id = rs.getInt("UserID"); // "id" is the column name for the id field
+                if(id == userID) {
+                    return true;
+                }
+            }
+
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
