@@ -684,7 +684,7 @@ public class PracticeModelOperations {
         GiftGlooController controller = loader.getController();;
 
         // Call the setLabelText() method on the controller object
-        controller.updateLabelText(controller.toString());
+//        controller.updateLabelText(controller.toString());
 
 
         // Set the new scene on the stage

@@ -1,5 +1,7 @@
-package com.example.snowitall;
+package com.example.snowitall.GradeK1;
 
+import com.example.snowitall.Grade;
+import com.example.snowitall.PracticeController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,7 +39,7 @@ public class GeometryController implements Initializable
     //Method to handle the return button which sends the user to the landing page
     @FXML
     private void returnToLandingPageButton(ActionEvent event) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("landing-page.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/snowitall/landing-page.fxml"));
         Parent root = loader.load();
 
         // Get the current stage from the button's scene
@@ -54,7 +56,7 @@ public class GeometryController implements Initializable
     //Method to handle the return button which sends the user to the operationsLandingPage
     @FXML
     private void returnToGeometryButton(ActionEvent event) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("geometryLandingPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/snowitall/geometryLandingPage.fxml"));
         Parent root = loader.load();
 
         // Get the current stage from the button's scene
@@ -89,7 +91,7 @@ public class GeometryController implements Initializable
     //Method to get the practice fxml file to display when button is clicked on the operations page
     @FXML
     private void handlePracticeButton(ActionEvent event) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("gyQuestionType.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/snowitall/gyQuestionType.fxml"));
         Parent root = loader.load();
 
         // Get the current stage from the button's scene
@@ -193,7 +195,7 @@ public class GeometryController implements Initializable
     //Method to go to Fill in the Blank questions
     @FXML
     private void handleFIB(ActionEvent event) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("gyFIB.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/snowitall/gyFIB.fxml"));
         Parent root = loader.load();
 
         // Get the current stage from the button's scene
@@ -207,6 +209,7 @@ public class GeometryController implements Initializable
 
         //generates fill in the blank question
         //controller.generateQuestionBasedOnGrade();
+        controller.randomShapeGenerator();
 
         // Call the setLabelText() method on the controller object
         controller.updateLabelText(model.toStringFIB());
@@ -215,5 +218,12 @@ public class GeometryController implements Initializable
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private Object model; // Replace 'Object' with the actual type of your model
+
+    public void setModel(Object model) {
+        this.model = model;
+        // Additional logic to update the UI or perform other actions with the model
     }
 }

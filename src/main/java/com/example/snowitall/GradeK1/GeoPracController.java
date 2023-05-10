@@ -1,5 +1,9 @@
-package com.example.snowitall;
+package com.example.snowitall.GradeK1;
 
+import com.example.snowitall.GiftGlooController;
+import com.example.snowitall.GiftGlooModel;
+import com.example.snowitall.LandingPageController;
+import com.example.snowitall.Standard;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.*;
 import java.util.Random;
 
 public class GeoPracController{
@@ -139,10 +144,10 @@ public class GeoPracController{
         return questionText;
     }
 
-    public String toStringFIB(String string) {
-        String questionText = "What is " + model.getNum1() + string + model.getNum2() + "?";
-        return questionText;
-    }
+//    public String toStringFIB(String string) {
+//        String questionText = "What is " + model.getNum1() + string + model.getNum2() + "?";
+//        return questionText;
+//    }
 
     public static class Question {
         private String questionText;
@@ -181,7 +186,7 @@ public class GeoPracController{
 
     @FXML
     private void returntoQuestionType(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("gyQuestionType.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/snowitall/gyQuestionType.fxml"));
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -228,7 +233,10 @@ public class GeoPracController{
 
         System.out.println("This is the answer that the user entered : " + answerStr);
 
+        answerCheck();
+
         if (answer!= null && answerStr.equals(model.getCorrectAnswer())) {
+            setShapeVisibility();
             correctAnswerImage.setVisible(true);
             System.out.println("Correct Answer");
             int count = model.getCorrectAnswerCount();
@@ -240,6 +248,7 @@ public class GeoPracController{
             intLabel.setVisible(true);
             nextQuestionButton.setVisible(true);
         } else {
+            setShapeVisibility();
             incorrectAnswerImage1.setVisible(true);
             System.out.println("Incorrect Answer");
             submitButtonFIB.setDisable(true);
@@ -249,6 +258,32 @@ public class GeoPracController{
 
     }
 
+
+    public void updateRewardCount(int rewardCount) {
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        }
+        catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try (
+                Connection connection = DriverManager.getConnection("jdbc:mysql://snowitall-db.cyvluizuepzk.us-east-1.rds.amazonaws.com:3306/SnowItAll?user=admin&password=password&useSSL=false"))
+        {
+            String sql = "UPDATE User SET SnowflakeCounter = ? WHERE UserId = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, rewardCount);  // Assuming the rewardCount is within the range of TINYINT
+
+            statement.executeUpdate();
+            System.out.println("Reward count updated successfully in the database.");
+        } catch (SQLException e) {
+            System.out.println("Error updating reward count in the database: " + e.getMessage());
+        }
+    }
+
+
+
     @FXML
     public void handleNextFIBQuestionButton() throws Exception{
         gift.setSnowflakes(model.getCorrectAnswerCount());
@@ -256,12 +291,20 @@ public class GeoPracController{
         System.out.println("Gift model Snowflakes count: " + gift.getSnowflakes());
         System.out.println("Practice model Snowflakes count: " + model.getCorrectAnswerCount());
         if (model.getCorrectAnswerCount() == 2) {
+            setShapeVisibility();
+
+            //insert database reward method here
+            updateRewardCount(model.getCorrectAnswerCount());
+
             giftAlert.setVisible(true);
             xButton.setVisible(true);
             gift.setSnowflakes(2);
 //            System.out.println("2 questions answered correctly...  " + controller.getGlooModel().getSnowflakes());
 //            System.out.println("gift object in handleNextFIBQuestionButton(): " + controller.getGlooModel().toString());
+        } else {
+            randomShapeGenerator();
         }
+
 
         answer.clear();
         submitButtonFIB.setDisable(false);
@@ -269,23 +312,25 @@ public class GeoPracController{
         correctAnswerImage.setVisible(false);
         incorrectAnswerImage1.setVisible(false);
 
+
         //generates a new fill in the blank question when next question button is clicked
         //generateQuestionBasedOnGrade();
 
         // Call the setLabelText() method on the controller object
-        updateLabelText(toStringFIB(model.getOperationSymbol()));
+        updateLabelText(model.toStringFIB());
 
-        generateGeometryQuestion();
+//        generateGeometryQuestion();
     }
     @FXML
     public void handleXButton() {
         giftAlert.setVisible(false);
         xButton.setVisible(false);
+        randomShapeGenerator();
     }
 
     @FXML
     private void handleGiftGloo(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GiftGloo.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/snowitall/GiftGloo.fxml"));
         Parent root = loader.load();
 
         // Get the current stage from the button's scene
@@ -295,7 +340,7 @@ public class GeoPracController{
         GiftGlooController controller = loader.getController();
 
         // Call the setLabelText() method on the controller object
-        controller.updateLabelText(controller.toString());
+//        controller.updateLabelText(controller.toString());
 
 
         // Set the new scene on the stage
@@ -307,7 +352,7 @@ public class GeoPracController{
 
     @FXML
     private void returntolandingpageButton(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("ret-page.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/snowitall/landing-page.fxml"));
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -319,19 +364,19 @@ public class GeoPracController{
 
     }
 
-    //TODO ADD QUESTION TYPE PARAMETER TO generateGeometryQuestion
-    public void generateGeometryQuestion() {
-        // Set the GeoModel instance for the GEOMETRY standard
-        Standard.GEOMETRY.setModel(model);
-
-        // Generate a random question for the GEOMETRY standard
-        String question = Standard.GEOMETRY.generateRandomFillInTheBlankQuestion(Standard.GEOMETRY);
-
-        // Call the setLabelText() method on the controller object
-        updateLabelText(question);
-
-        // You can add more UI update code here if needed
-    }
+//    //TODO ADD QUESTION TYPE PARAMETER TO generateGeometryQuestion
+//    public void generateGeometryQuestion() {
+//        // Set the GeoModel instance for the GEOMETRY standard
+//        Standard.GEOMETRY.setModel(model);
+//
+//        // Generate a random question for the GEOMETRY standard
+//        String question = Standard.GEOMETRY.generateRandomFillInTheBlankQuestion(Standard.GEOMETRY);
+//
+//        // Call the setLabelText() method on the controller object
+//        updateLabelText(question);
+//
+//        // You can add more UI update code here if needed
+//    }
 
 
     public void randomShapeGenerator() {
@@ -383,6 +428,65 @@ public class GeoPracController{
             }
             default -> {
             }
+        }
+    }
+
+    public void setShapeVisibility() {
+        circle.setVisible(false);
+        heptagon.setVisible(false);
+        hexagon.setVisible(false);
+        nonagon.setVisible(false);
+        octagon.setVisible(false);
+        pentagon.setVisible(false);
+        square.setVisible(false);
+        triangle.setVisible(false);
+    }
+
+    public void answerCheck() {
+        if (square.isVisible()) {
+
+            // Perform the desired action
+            System.out.println(" Square is currently displayed.");
+            model.setCorrectAnswer("4");
+        } else if (circle.isVisible()) {
+
+            // Perform the desired action
+            System.out.println("circle is currently displayed");
+            model.setCorrectAnswer("1");
+        } else if (triangle.isVisible()) {
+
+            // Perform the desired action
+            System.out.println("triangle is currently displayed");
+            model.setCorrectAnswer("3");
+        } else if (pentagon.isVisible()) {
+
+            // Perform the desired action
+            System.out.println("pentagon is currently displayed");
+            model.setCorrectAnswer("5");
+        } else if (hexagon.isVisible()) {
+
+            // Perform the desired action
+            System.out.println("hexagon is currently displayed");
+            model.setCorrectAnswer("6");
+        } else if (heptagon.isVisible()) {
+
+            // Perform the desired action
+            System.out.println("heptagon is currently displayed");
+            model.setCorrectAnswer("7");
+        } else if (octagon.isVisible()) {
+
+            // Perform the desired action
+            System.out.println("octagon is currently displayed");
+            model.setCorrectAnswer("8");
+        } else if (nonagon.isVisible()) {
+
+            // Perform the desired action
+            System.out.println("nonagon is currently displayed");
+            model.setCorrectAnswer("9");
+        }else {
+
+            // Perform the desired action
+            System.out.println("No ImageView is currently displayed.");
         }
     }
 }

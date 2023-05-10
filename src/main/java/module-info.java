@@ -9,4 +9,6 @@ module com.example.snowitall {
 
     opens com.example.snowitall to javafx.fxml;
     exports com.example.snowitall;
+    exports com.example.snowitall.GradeK1;
+    opens com.example.snowitall.GradeK1 to javafx.fxml;
 }

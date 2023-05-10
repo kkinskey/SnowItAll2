@@ -1,4 +1,4 @@
-package com.example.snowitall;
+package com.example.snowitall.GradeK1;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -227,4 +227,5 @@ public class GeoModel {
         String questionText = "How many sides does this shape have?";
         return questionText;
     }
+
 }

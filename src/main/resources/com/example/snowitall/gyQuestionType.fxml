@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="342.0" prefWidth="600.0"
             xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.snowitall.GeometryController">
+            fx:controller="com.example.snowitall.GradeK1.GeometryController">
     <children>
         <ImageView fitHeight="390.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
             <image>
