@@ -97,21 +97,6 @@ public class PracticeController implements SceneController{
         return intLabel.getScene();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private GiftGlooController controller;
 
     public GiftGlooModel getGift() {
@@ -463,7 +448,7 @@ public class PracticeController implements SceneController{
 
 
         //sets submit button disable attribute to false if radio button is selected
-        tfInitialize();
+        //tfInitialize();
 
         //generates True False question for practice page when practice button is click on operations landing page
         TrueFalseQuestionGenerator();

@@ -6,8 +6,9 @@ import javafx.scene.layout.AnchorPane;
 
 import java.util.Random;
 public class GeoModel {
-    private int number1;
+    private int grade;
 
+    private int number1;
     private int number2;
     private int answer;
     private int correctAnswerIndex;
@@ -36,12 +37,17 @@ public class GeoModel {
         this.choices = choices;
     }
 
-
-
-
     public GeoModel() {
 
 
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
     }
 
 
