@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class OperationsController implements Initializable {
+public class OperationsController implements Initializable{
 
     @FXML
     public Button returnButton;
@@ -69,7 +69,7 @@ public class OperationsController implements Initializable {
     //Method that handles the next button on the practice page to send the user to the mastery page
     @FXML
     private void handleNextButTontoPractice(ActionEvent event) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("QuestionType.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("opQuestionType.fxml"));
         Parent root = loader.load();
 
         // Get the current stage from the button's scene
@@ -96,7 +96,7 @@ public class OperationsController implements Initializable {
     //Method to get the practice fxml file to display when button is clicked on the operations page
     @FXML
     private void handlePracticeButton(ActionEvent event) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("QuestionType.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("opQuestionType.fxml"));
         Parent root = loader.load();
 
         // Get the current stage from the button's scene
@@ -112,7 +112,7 @@ public class OperationsController implements Initializable {
     //Method to get the Mastery fxml file to display when button is clicked on the operations page
     @FXML
     private void handleMasteryTestButton(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Mastery.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("opMastery.fxml"));
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -129,7 +129,7 @@ public class OperationsController implements Initializable {
     //Method to get the video-tutorial fxml file to display when button is clicked on the operations page
     @FXML
     private void handleVideoTutorial(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("video-tutorial.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("opVideoTutorial.fxml"));
 
 
         // Get the current stage from the button's scene
@@ -139,7 +139,6 @@ public class OperationsController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
 
     @FXML

@@ -1,51 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="338.0"
-            prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.snowitall.LandingPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="338.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snowitall.LandingPageController">
     <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@backgrounds/Grade.png"/>
+        <Image url="@backgrounds/Grade.png" />
     </ImageView>
-    <Button layoutX="58.0" layoutY="127.0" mnemonicParsing="false" onAction="#handleGrade" opacity="0.0"
-            prefHeight="42.0" prefWidth="229.0" text="K">
+    <Button layoutX="58.0" layoutY="127.0" mnemonicParsing="false" onAction="#handleOpGrade" opacity="0.0" prefHeight="42.0" prefWidth="229.0" text="K1">
         <cursor>
-            <Cursor fx:constant="OPEN_HAND"/>
+            <Cursor fx:constant="OPEN_HAND" />
         </cursor>
     </Button>
-    <Button layoutX="314.0" layoutY="127.0" mnemonicParsing="false" onAction="#handleGrade" opacity="0.0"
-            prefHeight="42.0" prefWidth="229.0" text="1st Grade">
+    <Button layoutX="314.0" layoutY="127.0" mnemonicParsing="false" onAction="#handleOpGrade" opacity="0.0" prefHeight="42.0" prefWidth="229.0" text="23">
         <cursor>
-          <Cursor fx:constant="OPEN_HAND"/>
+          <Cursor fx:constant="OPEN_HAND" />
         </cursor>
     </Button>
-    <Button layoutX="58.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleGrade" opacity="0.0"
-            prefHeight="42.0" prefWidth="229.0" text="2nd Grade">
+    <Button layoutX="185.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleOpGrade" opacity="0.0" prefHeight="42.0" prefWidth="229.0" text="4">
         <cursor>
-          <Cursor fx:constant="OPEN_HAND"/>
+          <Cursor fx:constant="OPEN_HAND" />
         </cursor>
     </Button>
-    <Button layoutX="314.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleGrade" opacity="0.0"
-            prefHeight="42.0" prefWidth="229.0" text="3rd Grade">
+    <Button layoutY="284.0" mnemonicParsing="false" onAction="#returnToLandingPageButton" opacity="0.0" prefHeight="30.0" prefWidth="88.0" text="return">
         <cursor>
-          <Cursor fx:constant="OPEN_HAND"/>
-        </cursor>
-    </Button>
-    <Button layoutX="186.0" layoutY="234.0" mnemonicParsing="false" onAction="#handleGrade" opacity="0.0"
-            prefHeight="42.0" prefWidth="229.0" text="4th Grade">
-        <cursor>
-          <Cursor fx:constant="OPEN_HAND"/>
-        </cursor>
-    </Button>
-    <Button layoutY="284.0" mnemonicParsing="false" onAction="#returnToLandingPageButton" opacity="0.0"
-            prefHeight="30.0" prefWidth="88.0" text="return">
-        <cursor>
-            <Cursor fx:constant="OPEN_HAND"/>
+            <Cursor fx:constant="OPEN_HAND" />
         </cursor>
     </Button>
 </AnchorPane>

@@ -355,7 +355,7 @@ public class PracticeController {
 
     @FXML
     private void returntoQuestionType(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("QuestionType.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("opQuestionType.fxml"));
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

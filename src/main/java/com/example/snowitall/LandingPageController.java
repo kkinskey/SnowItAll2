@@ -1,13 +1,11 @@
 package com.example.snowitall;
 
-import com.example.snowitall.GradeK1.GeometryController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -96,8 +94,8 @@ public class LandingPageController {
 //    }
 
     @FXML
-    private void handleGrade(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("operationsLandingPage.fxml"));
+    private void handleOpGrade(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("opGradeK1.fxml"));
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -111,7 +109,7 @@ public class LandingPageController {
 
     @FXML
     private void handleMsGrade(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("measurementsLandingPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("msGradeK1.fxml"));
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -125,7 +123,7 @@ public class LandingPageController {
 
     @FXML
     private void handleGyGrade(ActionEvent event) throws IOException {
-    Parent root = FXMLLoader.load(getClass().getResource("/com/example/snowitall/geometryLandingPage.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("gyGradeK1.fxml"));
 
     // Get the current stage from the button's scene
     Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
