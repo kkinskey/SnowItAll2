@@ -1,17 +1,19 @@
 package com.example.snowitall;
 
+import com.example.snowitall.GradeK1.GeometryController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
 
-public class LandingPageController implements SceneController{
+public class LandingPageController {
 
     private Login model;
     private Scene loginScene;
@@ -121,20 +123,73 @@ public class LandingPageController implements SceneController{
         stage.show();
     }
 
-
     @FXML
     private void handleGyGrade(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("geometryLandingPage.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("/com/example/snowitall/geometryLandingPage.fxml"));
 
-        // Get the current stage from the button's scene
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    // Get the current stage from the button's scene
+    Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-        // Set the new scene on the stage
-        Scene scene = new Scene(root);
+    // Set the new scene on the stage
+    Scene scene = new Scene(root);
         stage.setTitle("Snow It All");
         stage.setScene(scene);
         stage.show();
     }
+
+
+//    @FXML
+//    private void handleGyGrade(Grade selectedGrade) throws IOException {
+//
+//        try {
+//            FXMLLoader loader = new FXMLLoader();
+//            loader.setLocation(getClass().getResource(selectedGrade.getFxmlPath()));
+//            Parent root = loader.load();
+//
+//            if (selectedGrade == Grade.GRADE_1) {
+//                GeometryController geometryController = loader.getController();
+//                geometryController.setModel(selectedGrade.getModel());
+//            }
+//            // Handle other grade cases if necessary
+//
+//            Scene scene = new Scene(root);
+//            primaryStage.setScene(scene);
+//            primaryStage.show();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    @FXML
+//    private Button kindergartenButton;
+//
+//    @FXML
+//    private void initialize() {
+//        kindergartenButton.setOnAction(event -> {
+//            Grade selectedGrade = Grade.GRADE_1; // Modify this as per your grade selection logic
+//            try {
+//                handleGyGrade(selectedGrade);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        });
+//    }
+
+
+//        Parent root = FXMLLoader.load(getClass().getResource("geometryLandingPage.fxml"));
+//
+//        // Get the current stage from the button's scene
+//        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+//
+//        // Set the new scene on the stage
+//        Scene scene = new Scene(root);
+//        stage.setTitle("Snow It All");
+//        stage.setScene(scene);
+//        stage.show();
+//    }
+
+
+
 
     @FXML
     private void handleGiftGloo(ActionEvent event) throws IOException {
@@ -145,8 +200,12 @@ public class LandingPageController implements SceneController{
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
+
+
         // Get the controller object
-//        GiftGlooController giftGlooController = loader.getController();
+        GiftGlooController giftGlooController = loader.getController();
+
+
 //        PracticeController practiceController = l.getController();
 //        GiftGlooController giftGlooController = l.getController(); //NOTE: You cannot have two loaders apparently!
 
@@ -155,7 +214,7 @@ public class LandingPageController implements SceneController{
 //        giftGlooController.setLabel(practiceController.getIntLabel());
 //           String text = giftGlooController.practiceController.getGift().getSnowflakes() + "";
 //           System.out.println(text);
-//           giftGlooController.updateLabelText(text);
+           giftGlooController.updateLabelText();
 //        labelSetter();
 
 
@@ -206,15 +265,6 @@ public class LandingPageController implements SceneController{
         primaryStage.setScene(scene);
     }
 
-    @Override
-    public void setText(String text) {
-
-    }
-
-    @Override
-    public Scene getScene() {
-        return null;
-    }
 
     @FXML
     private void handleLogout(ActionEvent event) throws IOException {

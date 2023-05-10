@@ -13,7 +13,7 @@
                 <Image url="@backgrounds/giftgloo.png" />
             </image>
         </ImageView>
-            <Label fx:id="snowFlakeCount" layoutX="234.0" layoutY="85.0" prefHeight="49.0" prefWidth="320.0" visible="true">
+            <Label fx:id="snowFlakeCount" layoutX="33.0" layoutY="85.0" prefHeight="91.0" prefWidth="521.0" visible="true">
                 <font>
                     <Font name="Hiragino Sans W9" size="18.0" />
                 </font>

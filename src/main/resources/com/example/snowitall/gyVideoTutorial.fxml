@@ -11,7 +11,7 @@
 <AnchorPane prefHeight="571.0" prefWidth="769.0" style="-fx-background-color: lightblue;"
             stylesheets="@styles.css"
             xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.snowitall.GeometryController">
+            fx:controller="com.example.snowitall.GradeK1.GeometryController">
     <ImageView fitHeight="571.0" fitWidth="769.0">
         <Image url="@backgrounds/snowBackground.jpg" />
     </ImageView>

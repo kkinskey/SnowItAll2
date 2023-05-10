@@ -10,7 +10,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class GiftGlooController implements SceneController{
+import java.sql.*;
+
+public class GiftGlooController {
     @FXML
     private ImageView snowFlake;
 
@@ -52,29 +54,7 @@ public class GiftGlooController implements SceneController{
     }
 
 
-    @Override
-    public void setText(String text) {
-        // This method will be empty in the first controller, since we won't be setting text here
-    }
 
-    @Override
-    public Scene getScene() {
-        return null;
-    }
-
-//    @Override
-//    public Scene getScene() {
-//        return textField.getScene();
-//    }
-
-
-
-
-
-
-//    public void setMainApp(LandingPageController model) {
-//        this.loginModel = model;
-//    }
 
     public GiftGlooModel getGlooModel() {
         return glooModel;
@@ -94,8 +74,30 @@ public class GiftGlooController implements SceneController{
 
     }
 
-    public void updateLabelText(String text) {
-        snowFlakeCount.setText(text);
+    public void updateLabelText() {
+       int rewardCount =  getRewardCountFromDatabase();
+       System.out.println("Reward Count = " + getRewardCountFromDatabase());
+        String strNumber = Integer.toString(rewardCount);
+        snowFlakeCount.setText("Current number of rewards: " + strNumber);
+    }
+
+    public int getRewardCountFromDatabase() {
+        int rewardCount = 0;
+        try (
+                Connection connection = DriverManager.getConnection("jdbc:mysql://snowitall-db.cyvluizuepzk.us-east-1.rds.amazonaws.com:3306/SnowItAll?user=admin&password=password&useSSL=false"))
+        {
+            String sql = "SELECT PracticeCheck FROM Geometry";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                rewardCount = resultSet.getInt("PracticeCheck");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error retrieving reward count from the database: " + e.getMessage());
+        }
+
+        return rewardCount;
     }
 
 
