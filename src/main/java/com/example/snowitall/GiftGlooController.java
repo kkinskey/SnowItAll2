@@ -10,8 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class GiftGlooController //implements SceneController
-{
+public class GiftGlooController implements SceneController{
     @FXML
     private ImageView snowFlake;
 
@@ -53,15 +52,15 @@ public class GiftGlooController //implements SceneController
     }
 
 
-//    @Override
-//    public void setText(String text) {
-//        // This method will be empty in the first controller, since we won't be setting text here
-//    }
-//
-//    @Override
-//    public Scene getScene() {
-//        return null;
-//    }
+    @Override
+    public void setText(String text) {
+        // This method will be empty in the first controller, since we won't be setting text here
+    }
+
+    @Override
+    public Scene getScene() {
+        return null;
+    }
 
 //    @Override
 //    public Scene getScene() {
@@ -100,24 +99,24 @@ public class GiftGlooController //implements SceneController
     }
 
 
-    // method that generates a string to display the total number of snow flakes the user has earned
-    public String toString(){
-
-//        String count = snowFlakeCount();
-//        if (gift.getSnowFlakeString() == null) {
-//            String questionText = "You have 0 Snow Flakes";
-//            return questionText;
-//        } else {
-
-       int snowflakes = controller.getGift().getSnowflakes();
-      snowFlakeCount = controller.getIntLabel();
-
-
-        System.out.println("gift gloo controller Snowflakes:" + snowflakes );
-
-        return "You have " + snowflakes + "" + " Snow Flakes";
-
-    }
+//    // method that generates a string to display the total number of snow flakes the user has earned
+//    public String toString(){
+//
+////        String count = snowFlakeCount();
+////        if (gift.getSnowFlakeString() == null) {
+////            String questionText = "You have 0 Snow Flakes";
+////            return questionText;
+////        } else {
+//
+//        int snowflakes = controller.getGift().getSnowflakes();
+//        snowFlakeCount = controller.getIntLabel();
+//
+//
+//        System.out.println("gift gloo controller Snowflakes:" + snowflakes );
+//
+//        return "You have " + snowflakes + "" + " Snow Flakes";
+//
+//    }
 
     public void setLabel(Label label) {
         snowFlakeCount = label;

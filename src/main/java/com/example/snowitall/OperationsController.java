@@ -69,20 +69,20 @@ public class OperationsController implements Initializable {
     //Method that handles the next button on the practice page to send the user to the mastery page
     @FXML
     private void handleNextButTontoPractice(ActionEvent event) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("MC.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("QuestionType.fxml"));
         Parent root = loader.load();
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
         // Get the controller object
-        PracticeController controller = loader.getController();
+        OperationsController controller = loader.getController();
 
 
-        controller.MultipleChoiceQuestionGenerator();
-
-        // Call the setLabelText() method on the controller object
-        controller.updateLabelText(controller.toString());
+//        controller.MultipleChoiceQuestionGenerator();
+//
+//        // Call the setLabelText() method on the controller object
+//        controller.updateLabelText(controller.toString());
 
         // Set the new scene on the stage
         Scene scene = new Scene(root);
@@ -161,7 +161,7 @@ public class OperationsController implements Initializable {
         controller.TrueFalseQuestionGenerator();
 
         // Call the setLabelText() method on the controller object
-        controller.updateLabelText(controller.toStringTF());
+        controller.updateLabelText(controller.getModel().toStringTF(controller.getModel().getOperationSymbol()));
 
         // Set the new scene on the stage
         Scene scene = new Scene(root);
@@ -190,7 +190,7 @@ public class OperationsController implements Initializable {
         controller.MultipleChoiceQuestionGenerator();
 
         // Call the setLabelText() method on the controller object
-        controller.updateLabelText(controller.toString());
+        controller.updateLabelText(controller.getModel().toStringFIB(controller.getModel().getOperationSymbol()));
 
         // Set the new scene on the stage
         Scene scene = new Scene(root);
@@ -213,14 +213,11 @@ public class OperationsController implements Initializable {
 
         System.out.println("Handle FIB has been called");
 
-        //sets submit button disable attribute to false when radio button is selected
-//        controller.mcInitialize();
-
         //generates fill in the blank question
         controller.FillInBlankQuestionGenerator();
 
         // Call the setLabelText() method on the controller object
-        controller.updateLabelText(controller.toStringFIB(controller.getOperatorSymbol()));
+        controller.updateLabelText(controller.getModel().toStringFIB(controller.getModel().getOperationSymbol()));
 
         // Set the new scene on the stage
         Scene scene = new Scene(root);
@@ -239,4 +236,7 @@ public class OperationsController implements Initializable {
         videoTutorial2.getEngine().load("https://www.youtube.com/embed/9IhZDEffyTk");
 
     }
+
 }
+
+

@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Random;
 
-public class PracticeController implements SceneController{
+public class PracticeController {
 
 
     @FXML
@@ -70,31 +70,10 @@ public class PracticeController implements SceneController{
     @FXML
     private Button xButton;
 
-
-
-
-
-
-
     private LandingPageController landingPageController;
-    private Scene firstScene;
 
-
-    public void setMainApp(LandingPageController landingPageController) {
-        this.landingPageController = landingPageController;
-    }
-
-    public void setFirstScene(Scene firstScene) {
-        this.firstScene = firstScene;
-    }
-
-    @Override
-    public void setText(String text) {
-        intLabel.setText(text);
-    }
-    @Override
-    public Scene getScene() {
-        return intLabel.getScene();
+    public PracticeModel getModel() {
+        return model;
     }
 
     private GiftGlooController controller;
@@ -133,7 +112,6 @@ public class PracticeController implements SceneController{
 
     }
 
-    //    private PracticeModel model; //= new PracticeModel();
 
     // Updates question label text for practice multiple choice questions
     public void updateLabelText(String text) {
@@ -141,69 +119,8 @@ public class PracticeController implements SceneController{
     }
 
 
-    // method that generates a string to display the mulitple choice question we are asking
-    public String toString(){
-
-        String questionText = "What is " + model.getNum1() + " + " + model.getNum2() + "?";
-        return questionText;
-    }
-
-    public String toStringTF(){
-
-        String questionText = "Is " + model.getNum1() + " + " + model.getNum2() + " = " + model.getCorrectAnswer() + "?";
-        return questionText;
-    }
-
-    public String toStringFIB(String string) {
-        String questionText = "What is " + model.getNum1() + string + model.getNum2() + "?";
-        return questionText;
-    }
-
-
     public void TrueFalseQuestionGenerator() {
-        // create a new Random object
-        Random random = new Random();
-
-        // generate a random integer between 0 (inclusive) and 10 (exclusive)
-        model.setNumber1(random.nextInt(100));
-        model.setNumber2(random.nextInt(10));
-
-        model.setAnswer(model.getNumber1() + model.getNumber2());
-
-        model.setCorrectAnswer(Integer.toString(model.getAnswer()));
-
-
-        model.setNum1(Integer.toString(model.getNumber1()));
-
-        model.setNum2(Integer.toString(model.getNumber2()));
-
-        //generates random number between 0 and 1
-        model.setCorrectAnswerIndex(random.nextInt(2));
-
-        String[] array1 = model.getTfAnswers();
-
-        array1[model.getCorrectAnswerIndex()] = model.getCorrectAnswer();
-
-        model.setTfAnswers(array1);
-
-        String[] array = model.getTfAnswers();
-
-
-        for (int i = 0; i < array.length; i++) {
-            // if the index is null or its value is already in the array, replace with a new random integer value
-            while (array[i] == null || containsDuplicate(array, i)) {
-                int choice = random.nextInt(120);
-                array[i] = Integer.toString(choice);
-            }
-        }
-
-        model.setTfAnswers(array);
-
-        if (model.getNumber1() + model.getNumber2() == model.getAnswer()) {
-            model.setCorrectAnswerTF(true);
-        } else{
-            model.setCorrectAnswerTF(false);
-        }
+        model.TrueFalseQuestion();
 
         choiceButtonFive.setText("True");
         choiceButtonSix.setText("False");
@@ -236,9 +153,6 @@ public class PracticeController implements SceneController{
             intLabel.setVisible(true);
             nextQuestionButton.setVisible(true);
 
-
-
-
         }
         else {
             incorrectAnswerImage1.setVisible(true);
@@ -253,44 +167,14 @@ public class PracticeController implements SceneController{
 
     }
 
+
+
+
     //generates random multiple choice questions for adding two numbers
     public void MultipleChoiceQuestionGenerator() {
 
-        // create a new Random object
-        Random random = new Random();
-
-        // generate a random integer between 0 (inclusive) and 10 (exclusive)
-        model.setNumber1(random.nextInt(100));
-        model.setNumber2(random.nextInt(10));
-
-        model.setAnswer(model.getNumber1() + model.getNumber2());
-
-        model.setCorrectAnswer(Integer.toString(model.getAnswer()));
-
-        model.setNum1(Integer.toString(model.getNumber1()));
-
-        model.setNum2(Integer.toString(model.getNumber2()));
-
-        //generates random number between 0 and 3
-        model.setCorrectAnswerIndex(random.nextInt(4));
-
-        String[] array1 = model.getChoices();
-
-        array1[model.getCorrectAnswerIndex()] = model.getCorrectAnswer();
-
-        model.setChoices(array1);
-
+        model.MultipleChoiceQuestion();
         String[] array = model.getChoices();
-
-        for (int i = 0; i < array.length; i++) {
-            // if the index is null or its value is already in the array, replace with a new random integer value
-            while (array[i] == null || containsDuplicate(array, i)) {
-                int choice = random.nextInt(120);
-                array[i] = Integer.toString(choice);
-            }
-        }
-
-        model.setChoices(array);
 
         choiceButtonOne.setText(array[0]);
         choiceButtonTwo.setText(array[1]);
@@ -299,20 +183,10 @@ public class PracticeController implements SceneController{
 
     }
 
-    // method to check if the array contains a duplicate of the element at the given index
-    public static boolean containsDuplicate(Object[] array, int index) {
-        for (int i = 0; i < array.length; i++) {
-            if (i != index && array[i] != null && array[i].equals(array[index])) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     @FXML
     public void mcInitialize() {
         System.out.println("Initialize has been called");
-    radioGroup = new ToggleGroup();
+        radioGroup = new ToggleGroup();
         if (choiceButtonOne != null) {
             System.out.println("Choice button 1 ok");
         }
@@ -324,15 +198,15 @@ public class PracticeController implements SceneController{
 
         submitButton.setDisable(true);
         radioGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
-        if (radioGroup.getSelectedToggle() != null) {
-            System.out.println("Enable submit button");
-            submitButton.setDisable(false);
-        }
+            if (radioGroup.getSelectedToggle() != null) {
+                System.out.println("Enable submit button");
+                submitButton.setDisable(false);
+            }
 //            radioGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
 //
 //                submitButton.setDisable(false); // enable the button when a toggle is selected
 //            });
-    });
+        });
 
     }
 
@@ -420,19 +294,19 @@ public class PracticeController implements SceneController{
 
 
 
-            //sets submit button disable attribute to false if radio button is selected
-            mcInitialize();
+        //sets submit button disable attribute to false if radio button is selected
+        mcInitialize();
 
-            //generates multiple choice question for practice page when practice button is click on operations landing page
-            MultipleChoiceQuestionGenerator();
-
-
-            // Call the setLabelText() method on the controller object
-            updateLabelText(toString());
+        //generates multiple choice question for practice page when practice button is click on operations landing page
+        MultipleChoiceQuestionGenerator();
 
 
+        // Call the setLabelText() method on the controller object
+        updateLabelText(model.toStringFIB(model.getOperationSymbol()));
 
-        }
+
+
+    }
 
     @FXML
     public void handleNextQuestionButtonTF() throws Exception{
@@ -455,7 +329,7 @@ public class PracticeController implements SceneController{
 
 
         // Call the setLabelText() method on the controller object
-        updateLabelText(toStringTF());
+        updateLabelText(model.toStringTF(model.getOperationSymbol()));
 
 
 
@@ -510,10 +384,24 @@ public class PracticeController implements SceneController{
 
     @FXML
     private void handleNextButtonToTF(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("TF.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TF.fxml"));
+        Parent root = loader.load();
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+
+        // Get the controller object
+        PracticeController controller = loader.getController();
+
+        controller.tfInitialize();
+
+
+        //generates True False question
+        controller.TrueFalseQuestionGenerator();
+
+        // Call the setLabelText() method on the controller object
+        controller.updateLabelText(controller.getModel().toStringTF(controller.getModel().getOperationSymbol()));
 
         // Set the new scene on the stage
         Scene scene = new Scene(root);
@@ -524,10 +412,23 @@ public class PracticeController implements SceneController{
 
     @FXML
     private void handleNextButtonToFIB(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("FIB.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FIB.fxml"));
+        Parent root = loader.load();
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Get the controller object
+        PracticeController controller = loader.getController();
+        PracticeModel model = new PracticeModel();
+
+        System.out.println("Handle FIB has been called");
+
+        //generates fill in the blank question
+        controller.FillInBlankQuestionGenerator();
+
+        // Call the setLabelText() method on the controller object
+        controller.updateLabelText(controller.getModel().toStringFIB(controller.getModel().getOperationSymbol()));
 
         // Set the new scene on the stage
         Scene scene = new Scene(root);
@@ -538,8 +439,7 @@ public class PracticeController implements SceneController{
 
 
     public void FillInBlankQuestionGenerator() {
-        randomQuestionGenerator();
-
+        model.randomQuestion();
     }
 
     public void handleFIBsubmitButton() {
@@ -573,7 +473,7 @@ public class PracticeController implements SceneController{
     @FXML
     public void handleNextFIBQuestionButton() throws Exception{
         gift.setSnowflakes(model.getCorrectAnswerCount());
-         //TODO Print out gift snowflakes and model snowflakes and make sure they the same!
+        //TODO Print out gift snowflakes and model snowflakes and make sure they the same!
         System.out.println("Gift model Snowflakes count: " + gift.getSnowflakes());
         System.out.println("Practice model Snowflakes count: " + model.getCorrectAnswerCount());
         if (model.getCorrectAnswerCount() == 2) {
@@ -594,7 +494,7 @@ public class PracticeController implements SceneController{
         FillInBlankQuestionGenerator();
 
         // Call the setLabelText() method on the controller object
-        updateLabelText(toStringFIB(model.getOperationSymbol()));
+        updateLabelText(model.toStringFIB(model.getOperationSymbol()));
 
     }
     @FXML
@@ -700,44 +600,7 @@ public void additionQuestionGenerator()
 
 
 
-    public void randomQuestionGenerator() {
-        Random random = new Random();
-        int randomNumber = random.nextInt(4) + 1; // Generates a random number between 1 and 4
-        switch (randomNumber)
-        {
-            case 1:
-                additionQuestionGenerator();
-                setOperatorSymbol(" + ");
-                model.setOperationSymbol(" + ");
-                toStringFIB(model.getOperationSymbol());
-                System.out.println("Addition " + model.getOperationSymbol());
-                break;
-            case 2:
-                subtractionQuestionGenerator();
-                setOperatorSymbol(" - ");
-                model.setOperationSymbol(" - ");
-                toStringFIB(model.getOperationSymbol());
-                System.out.println("Subtraction " + model.getOperationSymbol());
-                break;
-            case 3:
-                multiplicationQuestionGenerator();
-                setOperatorSymbol(" x ");
-                model.setOperationSymbol(" x ");
-                toStringFIB(model.getOperationSymbol());
-                System.out.println("Multiplication " + model.getOperationSymbol());
-                break;
-            case 4:
-                divisionQuestionGenerator();
-                setOperatorSymbol(" / ");
-                model.setOperationSymbol(" / ");
-                toStringFIB(model.getOperationSymbol());
-                System.out.println("Division " + model.getOperationSymbol());
-                break;
-            default:
-                System.out.println("default");
-                break;
-        }
-    }
+
 
     @FXML
     private void handleGiftGloo(ActionEvent event) throws IOException {
