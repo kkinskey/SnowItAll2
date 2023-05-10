@@ -24,7 +24,7 @@ public class LandingPageController {
 
     public void setLoginScene(Scene loginScene) { this.loginScene = loginScene; }
 
-    //used to go from ' GradePrompt.fxml ' back to the main landing page
+    //used to go from ' opGradePrompt.fxml ' back to the main landing page
     @FXML
     private void returnToLandingPageButton(ActionEvent event) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("landing-page.fxml"));
@@ -45,7 +45,7 @@ public class LandingPageController {
 //    }
     @FXML
     private void handleOperations(ActionEvent event) throws IOException {
-            Parent root = FXMLLoader.load(getClass().getResource("GradePrompt.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("opGradePrompt.fxml"));
 
             // Get the current stage from the button's scene
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

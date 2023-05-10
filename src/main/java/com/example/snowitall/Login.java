@@ -73,7 +73,7 @@
 //////            landingPageController.setLoginScene(firstScene);
 //////            loginController.setLandingPageScene(landingPageController);
 ////
-//////            Scene operationsScene = loadFXML("GradePrompt.fxml", landingPageController);
+//////            Scene operationsScene = loadFXML("opGradePrompt.fxml", landingPageController);
 //////            landingPageController.set
 ////
 ////            primaryStage.setScene(firstScene);
