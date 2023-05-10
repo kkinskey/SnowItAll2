@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<!--<?xml version="1.0" encoding="UTF-8"?>-->
-<!--<?import javafx.scene.control.*?>-->
-<!--<?import javafx.scene.layout.*?>-->
-<!--<?import javafx.scene.text.Font?>-->
-<!--<AnchorPane style="-fx-background-image: url('src/main/resources/com/example/snowitall//image1.jpg'); -fx-background-size: cover;" fx:id="root" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snowitall.LoginController">-->
-<!--    <children>-->
-<!--        <Label fx:id="titleLabel" layoutX="72.0" layoutY="74.0" text="Login" textAlignment="CENTER" textFill="#2a2a2a">-->
-<!--            <font>-->
-<!--                <Font name="System Bold" size="24.0" />-->
-<!--            </font>-->
-<!--        </Label>-->
-<!--        <TextField fx:id="usernameField" layoutX="107.0" layoutY="126.0" promptText="Username" />-->
-<!--        <PasswordField fx:id="passwordField" layoutX="107.0" layoutY="159.0" promptText="Password" />-->
-<!--        <Button fx:id="enterButton" layoutX="160.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleLogin" text="Log In" />-->
-<!--        <Label fx:id="errorLabel" layoutX="105.0" layoutY="184.0" prefHeight="17.0" prefWidth="190.0" textAlignment="CENTER" textFill="#ff0000" />-->
-<!--    </children>-->
-<!--</AnchorPane>-->
-
-<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snowitall.LoginController">
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snowitall.LoginController">
     <children>
         <ImageView fitHeight="409.0" fitWidth="560.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -57,7 +41,7 @@
                 </ImageView>
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="newUserAnchorPane" prefHeight="379.0" prefWidth="553.0" visible="false">
+        <AnchorPane fx:id="newUserAnchorPane" disable="true" prefHeight="379.0" prefWidth="553.0" visible="false">
             <children>
                 <ImageView fitHeight="254.0" fitWidth="266.0" layoutX="156.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -73,13 +57,56 @@
                 </TextField>
                 <Button fx:id="leftSelectArrow" layoutX="228.0" layoutY="262.0" mnemonicParsing="false" onAction="#switchAviBack" opacity="0.0" prefHeight="32.0" prefWidth="24.0" text="Button" />
                 <Button fx:id="rightSelectArrow" layoutX="321.0" layoutY="262.0" mnemonicParsing="false" onAction="#switchAviForward" opacity="0.0" prefHeight="32.0" prefWidth="24.0" text="Button" />
-                <ImageView fx:id="dupCreds" fitHeight="165.0" fitWidth="281.0" layoutX="146.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                <ImageView fx:id="dupCreds" fitHeight="165.0" fitWidth="349.0" layoutX="187.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true" visible="false">
                     <image>
                         <Image url="@LoginPageImages/dupCredPenguin.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
-                </ImageView>
+                <ImageView fx:id="moose" fitHeight="56.0" fitWidth="65.0" layoutX="254.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@avatars/mooseHead.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fox" fitHeight="49.0" fitWidth="65.0" layoutX="258.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@avatars/foxHead.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="narwal" fitHeight="55.0" fitWidth="56.0" layoutX="258.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@avatars/narwalHead.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="owl" fitHeight="50.0" fitWidth="50.0" layoutX="264.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@avatars/owlHead.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="penguin" fitHeight="50.0" fitWidth="50.0" layoutX="265.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@avatars/penguinHead.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="bear" fitHeight="45.0" fitWidth="44.0" layoutX="266.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@avatars/polarbearHead.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="seal" fitHeight="50.0" fitWidth="50.0" layoutX="261.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@avatars/sealHead.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="walrus" fitHeight="47.0" fitWidth="56.0" layoutX="261.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@avatars/walrusHead.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="whale" fitHeight="50.0" fitWidth="50.0" layoutX="264.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@avatars/whaleHead.png" />
+               </image>
+            </ImageView>
             </children>
         </AnchorPane>
     </children>
