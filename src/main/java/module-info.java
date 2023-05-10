@@ -4,8 +4,7 @@ module com.example.snowitall {
     requires javafx.web;
     requires javafx.media;
     requires java.sql;
-    requires com.google.gson;
-
+    requires mysql.connector.java;
 
     opens com.example.snowitall to javafx.fxml;
     exports com.example.snowitall;

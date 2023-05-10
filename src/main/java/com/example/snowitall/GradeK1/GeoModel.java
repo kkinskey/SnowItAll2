@@ -1,9 +1,11 @@
 package com.example.snowitall.GradeK1;
 
+import com.example.snowitall.LoginController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
+import java.sql.*;
 import java.util.Random;
 public class GeoModel {
     private int grade;
@@ -120,10 +122,7 @@ public class GeoModel {
         this.correctAnswerIndex = correctAnswerIndex;
     }
 
-
-    public int getCorrectAnswerCount() {
-        return correctAnswerCount;
-    }
+    public int getCorrectAnswerCount() {return correctAnswerCount;}
 
 
     public void setCorrectAnswerCount(int correctAnswerCount) {
