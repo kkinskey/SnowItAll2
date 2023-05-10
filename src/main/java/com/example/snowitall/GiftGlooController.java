@@ -34,10 +34,6 @@ public class GiftGlooController {
 
     }
 
-
-
-
-
     private LandingPageController landingPageController;
 
     private PracticeController practiceController;
@@ -76,23 +72,32 @@ public class GiftGlooController {
 
     public void updateLabelText() {
        int rewardCount =  getRewardCountFromDatabase();
-       System.out.println("Reward Count = " + getRewardCountFromDatabase());
+       System.out.println("Reward Count = " + rewardCount);
         String strNumber = Integer.toString(rewardCount);
-        snowFlakeCount.setText("Current number of rewards: " + strNumber);
+        snowFlakeCount.setText("Current number of snowFlakes: " + strNumber);
     }
 
+    LoginController obj = new LoginController();
     public int getRewardCountFromDatabase() {
         int rewardCount = 0;
+        int userID = 1678;
         try (
                 Connection connection = DriverManager.getConnection("jdbc:mysql://snowitall-db.cyvluizuepzk.us-east-1.rds.amazonaws.com:3306/SnowItAll?user=admin&password=password&useSSL=false"))
         {
-            String sql = "SELECT PracticeCheck FROM Geometry";
+            String sql = "SELECT SnowflakeCounter, UserID FROM User";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
 
-            if (resultSet.next()) {
-                rewardCount = resultSet.getInt("PracticeCheck");
+            while (resultSet.next()) {
+                int dbUserID = resultSet.getInt("UserID");
+                int dbSnowflakeCounter = resultSet.getInt("SnowflakeCounter");
+
+                if (userID == dbUserID) {
+                    return dbSnowflakeCounter;
+                }
             }
+            rewardCount = resultSet.getInt("SnowflakeCounter");
+
         } catch (SQLException e) {
             System.out.println("Error retrieving reward count from the database: " + e.getMessage());
         }
