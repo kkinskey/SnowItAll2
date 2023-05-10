@@ -120,33 +120,33 @@ public class GeometryController implements Initializable
 
     }
 
-    @FXML
-    private void handleTF(ActionEvent event) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TF.fxml"));
-        Parent root = loader.load();
-
-        // Get the current stage from the button's scene
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-
-        // Get the controller object
-        PracticeController controller = loader.getController();
-
-        controller.tfInitialize();
-
-
-        //generates True False question
-        controller.TrueFalseQuestionGenerator();
-
-        // Call the setLabelText() method on the controller object
-        controller.updateLabelText(controller.toStringTF());
-
-        // Set the new scene on the stage
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
-    }
+//    @FXML
+//    private void handleTF(ActionEvent event) throws Exception{
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("TF.fxml"));
+//        Parent root = loader.load();
+//
+//        // Get the current stage from the button's scene
+//        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+//
+//
+//        // Get the controller object
+//        PracticeController controller = loader.getController();
+//
+//        controller.tfInitialize();
+//
+//
+//        //generates True False question
+//        controller.TrueFalseQuestionGenerator();
+//
+//        // Call the setLabelText() method on the controller object
+//        controller.updateLabelText(controller.toStringTF());
+//
+//        // Set the new scene on the stage
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+//
+//    }
 
     @FXML
     private void handleMC(ActionEvent event) throws Exception{

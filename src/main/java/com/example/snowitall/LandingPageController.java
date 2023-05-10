@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class LandingPageController implements SceneController{
 
@@ -213,5 +214,22 @@ public class LandingPageController implements SceneController{
     @Override
     public Scene getScene() {
         return null;
+    }
+
+    @FXML
+    private void handleLogout(ActionEvent event) throws IOException {
+        // Load the FXML file for the login page
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Login");
+
+        // Show the login page
+        stage.show();
     }
 }
