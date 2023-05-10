@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Random;
 
-public class GeoPracController implements SceneController{
+public class GeoPracController{
     @FXML
     private ImageView square, triangle, heptagon, hexagon, nonagon, pentagon, octagon, circle;
     @FXML
@@ -80,15 +80,6 @@ public class GeoPracController implements SceneController{
 
     public void setFirstScene(Scene firstScene) {
         this.firstScene = firstScene;
-    }
-
-    @Override
-    public void setText(String text) {
-        intLabel.setText(text);
-    }
-    @Override
-    public Scene getScene() {
-        return intLabel.getScene();
     }
 
     private final GiftGlooController controller;
@@ -394,11 +385,4 @@ public class GeoPracController implements SceneController{
             }
         }
     }
-
-
-
-
-
-
-
 }
