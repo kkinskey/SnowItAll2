@@ -423,7 +423,6 @@ public class PracticeModelOperations {
 
     }
 
-
 //    Handle Button Methods
 
     //Method to handle the return button which sends the user to the operationsLandingPage

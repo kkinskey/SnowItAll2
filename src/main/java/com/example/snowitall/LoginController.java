@@ -284,7 +284,6 @@
 
 package com.example.snowitall;
 
-import javafx.beans.binding.StringBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -307,6 +306,32 @@ import java.sql.*;
 import java.util.Random;
 
 public class LoginController {
+
+    private int currentUserID = 0;
+
+    public int getUserID() {
+        return currentUserID;
+    }
+    @FXML
+    private ImageView moose;
+    @FXML
+    private ImageView fox;
+    @FXML
+    private ImageView narwal;
+    @FXML
+    private ImageView owl;
+    @FXML
+    private ImageView penguin;
+    @FXML
+    private ImageView bear;
+    @FXML
+    private ImageView seal;
+    @FXML
+    private ImageView walrus;
+    @FXML
+    private ImageView whale;
+    private int aviTracker[] = {1,0,0,0,0,0,0,0,0};
+    
     //Labels for front login page
     @FXML
     private AnchorPane loginAnchorPane;
@@ -445,13 +470,152 @@ public class LoginController {
             model.goToLandingPage(event);
         }
     }
+    
+    public int findCurrentAvi() {
+        for(int i = 0; i < aviTracker.length; i++) {
+            if (aviTracker[i] == 1) {
+                System.out.println("current avi at: " + i);
+                return i;
+            }
+        }
+        return 0;
+    }
+    @FXML
+    public void setAviVisibleFalse() {
+        moose.setVisible(false);
+        fox.setVisible(false);
+        narwal.setVisible(false);
+        owl.setVisible(false);
+        penguin.setVisible(false);
+        bear.setVisible(false);
+        seal.setVisible(false);
+        walrus.setVisible(false);
+        whale.setVisible(false);
+    }
 
-
+    @FXML
     public void switchAviBack(ActionEvent actionEvent) {
+        System.out.println(findCurrentAvi());
+        switch (findCurrentAvi())
+        {
+            case 0:
+                aviTracker[0] = 0;
+                aviTracker[8] = 1;
+                System.out.println(findCurrentAvi());
+                setAviVisibleFalse();
+                whale.setVisible(true);
+                break;
+            case 1:
+                aviTracker[1] = 0;
+                aviTracker[0] = 1;
+                setAviVisibleFalse();
+                moose.setVisible(true);
+                break;
+            case 2:
+                aviTracker[2] = 0;
+                aviTracker[1] = 1;
+                setAviVisibleFalse();
+                fox.setVisible(true);
+                break;
+            case 3:
+                aviTracker[3] = 0;
+                aviTracker[2] = 1;
+                setAviVisibleFalse();
+                narwal.setVisible(true);
+                break;
+            case 4:
+                aviTracker[4] = 0;
+                aviTracker[3] = 1;
+                setAviVisibleFalse();
+                owl.setVisible(true);
+                break;
+            case 5:
+                aviTracker[5] = 0;
+                aviTracker[4] = 1;
+                setAviVisibleFalse();
+                penguin.setVisible(true);
+                break;
+            case 6:
+                aviTracker[6] = 0;
+                aviTracker[5] = 1;
+                setAviVisibleFalse();
+                bear.setVisible(true);
+                break;
+            case 7:
+                aviTracker[7] = 0;
+                aviTracker[6] = 1;
+                setAviVisibleFalse();
+                seal.setVisible(true);
+                break;
+            case 8:
+                aviTracker[8] = 0;
+                aviTracker[7] = 1;
+                setAviVisibleFalse();
+                walrus.setVisible(true);
+                break;
+        }
 
     }
 
+    @FXML
     public void switchAviForward(ActionEvent actionEvent) {
+        switch (findCurrentAvi())
+        {
+            case 0:
+                aviTracker[0] = 0;
+                aviTracker[1] = 1;
+                setAviVisibleFalse();
+                fox.setVisible(true);
+                break;
+            case 1:
+                aviTracker[1] = 0;
+                aviTracker[2] = 1;
+                setAviVisibleFalse();
+                narwal.setVisible(true);
+                break;
+            case 2:
+                aviTracker[2] = 0;
+                aviTracker[3] = 1;
+                setAviVisibleFalse();
+                owl.setVisible(true);
+                break;
+            case 3:
+                aviTracker[3] = 0;
+                aviTracker[4] = 1;
+                setAviVisibleFalse();
+                penguin.setVisible(true);
+                break;
+            case 4:
+                aviTracker[4] = 0;
+                aviTracker[5] = 1;
+                setAviVisibleFalse();
+                bear.setVisible(true);
+                break;
+            case 5:
+                aviTracker[5] = 0;
+                aviTracker[6] = 1;
+                setAviVisibleFalse();
+                seal.setVisible(true);
+                break;
+            case 6:
+                aviTracker[6] = 0;
+                aviTracker[7] = 1;
+                setAviVisibleFalse();
+                walrus.setVisible(true);
+                break;
+            case 7:
+                aviTracker[7] = 0;
+                aviTracker[8] = 1;
+                setAviVisibleFalse();
+                whale.setVisible(true);
+                break;
+            case 8:
+                aviTracker[8] = 0;
+                aviTracker[0] = 1;
+                setAviVisibleFalse();
+                moose.setVisible(true);
+                break;
+        }
     }
 
     public Boolean queryUsernameAndPassword(String username, String password) {
@@ -534,6 +698,7 @@ public class LoginController {
         while (queryUserID(userID)) {
             userID = rand.nextInt(10000);
         }
+        currentUserID = userID;
         return userID;
     }
 
