@@ -13,9 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Random;
 
-public class PracticeController implements SceneController{
-
-
+public class PracticeModelOperations {
     @FXML
     private Label questionText;
     @FXML
@@ -26,17 +24,14 @@ public class PracticeController implements SceneController{
     private RadioButton choiceButtonThree;
     @FXML
     private RadioButton choiceButtonFour;
-
     @FXML
     private RadioButton choiceButtonFive;
-
     @FXML
     private RadioButton choiceButtonSix;
     @FXML
     public Button submitButton;
     @FXML
     public Button submitButtonTF;
-
     @FXML
     public Button submitButtonFIB;
     @FXML
@@ -47,16 +42,12 @@ public class PracticeController implements SceneController{
     public Button nextButton;
     @FXML
     public ToggleGroup radioGroup;
-
     @FXML
     public ToggleGroup radioGroup2;
-
     @FXML
     private ImageView correctAnswerImage;
-
     @FXML
     private ImageView incorrectAnswerImage1;
-
     @FXML
     private ImageView giftAlert;
     @FXML
@@ -71,45 +62,8 @@ public class PracticeController implements SceneController{
     private Button xButton;
 
 
-
-
-
-
-
     private LandingPageController landingPageController;
     private Scene firstScene;
-
-
-    public void setMainApp(LandingPageController landingPageController) {
-        this.landingPageController = landingPageController;
-    }
-
-    public void setFirstScene(Scene firstScene) {
-        this.firstScene = firstScene;
-    }
-
-    @Override
-    public void setText(String text) {
-        intLabel.setText(text);
-    }
-    @Override
-    public Scene getScene() {
-        return intLabel.getScene();
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     private GiftGlooController controller;
@@ -141,12 +95,6 @@ public class PracticeController implements SceneController{
         this.operatorSymbol = operatorSymbol;
     }
 
-    public PracticeController() {
-        this.model = new PracticeModel();
-        this.gift = new GiftGlooModel();
-        this.controller = new GiftGlooController();
-
-    }
 
     //    private PracticeModel model; //= new PracticeModel();
 
@@ -186,7 +134,6 @@ public class PracticeController implements SceneController{
         model.setAnswer(model.getNumber1() + model.getNumber2());
 
         model.setCorrectAnswer(Integer.toString(model.getAnswer()));
-
 
         model.setNum1(Integer.toString(model.getNumber1()));
 
@@ -327,7 +274,7 @@ public class PracticeController implements SceneController{
     @FXML
     public void mcInitialize() {
         System.out.println("Initialize has been called");
-    radioGroup = new ToggleGroup();
+        radioGroup = new ToggleGroup();
         if (choiceButtonOne != null) {
             System.out.println("Choice button 1 ok");
         }
@@ -339,15 +286,15 @@ public class PracticeController implements SceneController{
 
         submitButton.setDisable(true);
         radioGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
-        if (radioGroup.getSelectedToggle() != null) {
-            System.out.println("Enable submit button");
-            submitButton.setDisable(false);
-        }
+            if (radioGroup.getSelectedToggle() != null) {
+                System.out.println("Enable submit button");
+                submitButton.setDisable(false);
+            }
 //            radioGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
 //
 //                submitButton.setDisable(false); // enable the button when a toggle is selected
 //            });
-    });
+        });
 
     }
 
@@ -435,19 +382,19 @@ public class PracticeController implements SceneController{
 
 
 
-            //sets submit button disable attribute to false if radio button is selected
-            mcInitialize();
+        //sets submit button disable attribute to false if radio button is selected
+        mcInitialize();
 
-            //generates multiple choice question for practice page when practice button is click on operations landing page
-            MultipleChoiceQuestionGenerator();
-
-
-            // Call the setLabelText() method on the controller object
-            updateLabelText(toString());
+        //generates multiple choice question for practice page when practice button is click on operations landing page
+        MultipleChoiceQuestionGenerator();
 
 
+        // Call the setLabelText() method on the controller object
+        updateLabelText(toString());
 
-        }
+
+
+    }
 
     @FXML
     public void handleNextQuestionButtonTF() throws Exception{
@@ -523,34 +470,6 @@ public class PracticeController implements SceneController{
 
     }
 
-    @FXML
-    private void handleNextButtonToTF(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("TF.fxml"));
-
-        // Get the current stage from the button's scene
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-        // Set the new scene on the stage
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
-    }
-
-    @FXML
-    private void handleNextButtonToFIB(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("FIB.fxml"));
-
-        // Get the current stage from the button's scene
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-        // Set the new scene on the stage
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
-    }
-
 
     public void FillInBlankQuestionGenerator() {
         randomQuestionGenerator();
@@ -582,13 +501,12 @@ public class PracticeController implements SceneController{
             intLabel.setVisible(true);
             nextQuestionButton.setVisible(true);
         }
-
     }
 
     @FXML
     public void handleNextFIBQuestionButton() throws Exception{
         gift.setSnowflakes(model.getCorrectAnswerCount());
-         //TODO Print out gift snowflakes and model snowflakes and make sure they the same!
+        //TODO Print out gift snowflakes and model snowflakes and make sure they the same!
         System.out.println("Gift model Snowflakes count: " + gift.getSnowflakes());
         System.out.println("Practice model Snowflakes count: " + model.getCorrectAnswerCount());
         if (model.getCorrectAnswerCount() == 2) {
@@ -617,27 +535,27 @@ public class PracticeController implements SceneController{
         giftAlert.setVisible(false);
         xButton.setVisible(false);
     }
-public void additionQuestionGenerator()
-{
+    public void additionQuestionGenerator()
+    {
 
 
-    // create a new Random object
-    Random random = new Random();
+        // create a new Random object
+        Random random = new Random();
 
-    // generate a random integer between 0 (inclusive) and 10 (exclusive)
-    model.setNumber1(random.nextInt(100));
-    model.setNumber2(random.nextInt(10));
+        // generate a random integer between 0 (inclusive) and 10 (exclusive)
+        model.setNumber1(random.nextInt(100));
+        model.setNumber2(random.nextInt(10));
 
-    model.setAnswer(model.getNumber1() + model.getNumber2());
+        model.setAnswer(model.getNumber1() + model.getNumber2());
 
-    model.setCorrectAnswer(Integer.toString(model.getAnswer()));
+        model.setCorrectAnswer(Integer.toString(model.getAnswer()));
 
 
-    model.setNum1(Integer.toString(model.getNumber1()));
+        model.setNum1(Integer.toString(model.getNumber1()));
 
-    model.setNum2(Integer.toString(model.getNumber2()));
+        model.setNum2(Integer.toString(model.getNumber2()));
 
-}
+    }
 
     public void subtractionQuestionGenerator() {
 
@@ -789,17 +707,4 @@ public void additionQuestionGenerator()
         stage.show();
 
     }
-
-//GEOMETRY STUFF STARTS HERE
-
-
-
-
-
-
-
-
-
-
-
 }

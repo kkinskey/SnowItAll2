@@ -239,6 +239,4 @@ public class OperationsController implements Initializable {
         videoTutorial2.getEngine().load("https://www.youtube.com/embed/9IhZDEffyTk");
 
     }
-
-
 }

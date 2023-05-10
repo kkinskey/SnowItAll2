@@ -9,14 +9,31 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
-import java.net.URL;
+import java.util.Random;
 
+public class GeoPracController implements SceneController{
+    @FXML
+    private ImageView square;
+    @FXML
+    private ImageView triangle;
+    @FXML
+    private ImageView heptagon;
+    @FXML
+    private ImageView hexagon;
+    @FXML
+    private ImageView nonagon;
+    @FXML
+    private ImageView pentagon;
+    @FXML
+    private ImageView octagon;
+    @FXML
+    private ImageView circle;
 
-public class GeoPracController {
 
     @FXML
     private Label questionText;
@@ -61,12 +78,9 @@ public class GeoPracController {
 
     @FXML
     private ImageView giftAlert;
-
-    @FXML
-    private ImageView randomImageView;
     @FXML
     private Label intLabel;
-    private GeoModel model;
+    private final GeoModel model;
     private GiftGlooModel gift;
     @FXML
     private TextField answer;
@@ -75,11 +89,27 @@ public class GeoPracController {
     @FXML
     private Button xButton;
 
-    private GiftGlooController controller;
+    private LandingPageController landingPageController;
+    private Scene firstScene;
 
-    public GeoModel getModel() {
-        return model;
+    public void setMainApp(LandingPageController landingPageController) {
+        this.landingPageController = landingPageController;
     }
+
+    public void setFirstScene(Scene firstScene) {
+        this.firstScene = firstScene;
+    }
+
+    @Override
+    public void setText(String text) {
+        intLabel.setText(text);
+    }
+    @Override
+    public Scene getScene() {
+        return intLabel.getScene();
+    }
+
+    private final GiftGlooController controller;
 
     public GiftGlooModel getGift() {
         return gift;
@@ -100,6 +130,14 @@ public class GeoPracController {
         controller.setLabel(intLabel);
     }
 
+    public String getOperatorSymbol() {
+        return operatorSymbol;
+    }
+
+    public void setOperatorSymbol(String operatorSymbol) {
+        this.operatorSymbol = operatorSymbol;
+    }
+
     public GeoPracController() {
         this.model = new GeoModel();
         this.gift = new GiftGlooModel();
@@ -107,6 +145,7 @@ public class GeoPracController {
 
     }
 
+    //    private PracticeModel model; //= new PracticeModel();
 
     // Updates question label text for practice multiple choice questions
     public void updateLabelText(String text) {
@@ -114,223 +153,30 @@ public class GeoPracController {
     }
 
 
-    public void TrueFalseQuestionGenerator() {
-        model.TrueFalseQuestion();
+    // method that generates a string to display the mulitple choice question we are asking
+    public String toString(){
 
-        choiceButtonFive.setText("True");
-        choiceButtonSix.setText("False");
-
+        String questionText = "What is " + model.getNum1() + " + " + model.getNum2() + "?";
+        return questionText;
     }
 
-    public void handleRadioSelectionTF() {
-        RadioButton selectedRadioButton = (RadioButton) radioGroup2.getSelectedToggle();
+    public String toStringTF(){
 
-        boolean b = model.getCorrectAnswerTF();
-        String strb = String.valueOf(b);
-        String capitalizedStr = Character.toUpperCase(strb.charAt(0)) + strb.substring(1);
-        System.out.println(capitalizedStr);
-        System.out.println("selected button text" + selectedRadioButton.getText());
-
-
-        if (selectedRadioButton != null && selectedRadioButton.getText().equals(capitalizedStr)) {
-            // Show the correct answer image
-//            correctAnswerImage.setImage(new Image("Screen Shot 2023-04-13 at 11.39.46 PM.png"));
-            correctAnswerImage.setVisible(true);
-            System.out.println("Correct Answer");
-            int count = model.getCorrectAnswerCount();
-            count++;
-            model.setCorrectAnswerCount(count);
-            String countString = Integer.toString(model.getCorrectAnswerCount());
-            intLabel.setText("Correct Answer Count: " + countString);
-            choiceButtonFive.setDisable(true);
-            choiceButtonSix.setDisable(true);
-            submitButtonTF.setDisable(true);
-            intLabel.setVisible(true);
-            nextQuestionButton.setVisible(true);
-
-        }
-        else {
-            incorrectAnswerImage1.setVisible(true);
-            System.out.println("Incorrect Answer");
-            choiceButtonFive.setDisable(true);
-            choiceButtonSix.setDisable(true);
-            submitButtonTF.setDisable(true);
-            intLabel.setVisible(true);
-            nextQuestionButton.setVisible(true);
-
-        }
-
+        String questionText = "Is " + model.getNum1() + " + " + model.getNum2() + " = " + model.getCorrectAnswer() + "?";
+        return questionText;
     }
 
-    //generates random multiple choice questions for adding two numbers
-    public void MultipleChoiceQuestionGenerator() {
-
-        model.MultipleChoiceQuestion();
-        String[] array = model.getChoices();
-
-        choiceButtonOne.setText(array[0]);
-        choiceButtonTwo.setText(array[1]);
-        choiceButtonThree.setText(array[2]);
-        choiceButtonFour.setText(array[3]);
-
+    public String toStringFIB(String string) {
+        String questionText = "What is " + model.getNum1() + string + model.getNum2() + "?";
+        return questionText;
     }
-
-//    @FXML
-//    public void mcInitialize() {
-//        System.out.println("Initialize has been called");
-//        radioGroup = new ToggleGroup();
-//        if (choiceButtonOne != null) {
-//            System.out.println("Choice button 1 ok");
-//        }
-//        choiceButtonOne.setToggleGroup(radioGroup);
-//        choiceButtonTwo.setToggleGroup(radioGroup);
-//        choiceButtonThree.setToggleGroup(radioGroup);
-//        choiceButtonFour.setToggleGroup(radioGroup);
-//
-//
-//        submitButton.setDisable(true);
-//        radioGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
-//            if (radioGroup.getSelectedToggle() != null) {
-//                System.out.println("Enable submit button");
-//                submitButton.setDisable(false);
-//            }
-//
-//        });
-//
-//    }
-
-//    public void tfInitialize() {
-//        System.out.println("initialize 2 has been called");
-//        radioGroup2 = new ToggleGroup();
-//        choiceButtonFive.setToggleGroup(radioGroup2);
-//        choiceButtonSix.setToggleGroup(radioGroup2);
-//
-//        radioGroup2.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
-//            if (radioGroup2.getSelectedToggle() != null) {
-//                submitButtonTF.setDisable(false);
-//            }
-//        });
-//    }
-
-
-    //after radio button is selected and submit button is pressed this method will display an image to tell the user if their answer is correct or not
-    public void handleRadioSelection() {
-        RadioButton selectedRadioButton = (RadioButton) radioGroup.getSelectedToggle();
-
-
-        radioGroup = new ToggleGroup();
-        choiceButtonOne.setToggleGroup(radioGroup);
-        choiceButtonTwo.setToggleGroup(radioGroup);
-        choiceButtonThree.setToggleGroup(radioGroup);
-        choiceButtonFour.setToggleGroup(radioGroup);
-
-
-        System.out.println("In handle radio selection");
-        submitButton.setDisable(true); // disable the button by default
-
-
-
-
-        if (selectedRadioButton != null && selectedRadioButton.getText().equals(model.getCorrectAnswer())) {
-            // Show the correct answer image
-//            correctAnswerImage.setImage(new Image("Screen Shot 2023-04-13 at 11.39.46 PM.png"));
-            correctAnswerImage.setVisible(true);
-            System.out.println("Correct Answer");
-            int count = model.getCorrectAnswerCount();
-            count++;
-            model.setCorrectAnswerCount(count);
-            String countString = Integer.toString(model.getCorrectAnswerCount());
-            intLabel.setText("Correct Answer Count: " + countString);
-            choiceButtonOne.setDisable(true);
-            choiceButtonTwo.setDisable(true);
-            choiceButtonThree.setDisable(true);
-            choiceButtonFour.setDisable(true);
-//            submitButton.setDisable(true);
-            intLabel.setVisible(true);
-            nextQuestionButton.setVisible(true);
-
-
-
-
-        }
-        else {
-            incorrectAnswerImage1.setVisible(true);
-            System.out.println("Incorrect Answer");
-            choiceButtonOne.setDisable(true);
-            choiceButtonTwo.setDisable(true);
-            choiceButtonThree.setDisable(true);
-            choiceButtonFour.setDisable(true);
-//            submitButton.setDisable(true);
-            intLabel.setVisible(true);
-            nextQuestionButton.setVisible(true);
-
-
-        }
-
-    }
-    @FXML
-    public void handleNextQuestionButton() throws Exception{
-
-        nextQuestionButton.setVisible(false);
-        correctAnswerImage.setVisible(false);
-        incorrectAnswerImage1.setVisible(false);
-        radioGroup.selectToggle(null);
-        choiceButtonOne.setDisable(false);
-        choiceButtonTwo.setDisable(false);
-        choiceButtonThree.setDisable(false);
-        choiceButtonFour.setDisable(false);
-//        submitButton.setDisable(true);
-
-
-
-        //sets submit button disable attribute to false if radio button is selected
-//        mcInitialize();
-
-        //generates multiple choice question for practice page when practice button is click on operations landing page
-        MultipleChoiceQuestionGenerator();
-
-
-        // Call the setLabelText() method on the controller object
-        updateLabelText(model.toStringFIB(model.getOperationSymbol()));
-
-
-
-    }
-
-    @FXML
-    public void handleNextQuestionButtonTF() throws Exception{
-
-        nextQuestionButton.setVisible(false);
-        correctAnswerImage.setVisible(false);
-        incorrectAnswerImage1.setVisible(false);
-        radioGroup2.selectToggle(null);
-        choiceButtonFive.setDisable(false);
-        choiceButtonSix.setDisable(false);
-        submitButtonTF.setDisable(true);
-
-
-
-        //sets submit button disable attribute to false if radio button is selected
-//        tfInitialize();
-
-        //generates True False question for practice page when practice button is click on operations landing page
-        TrueFalseQuestionGenerator();
-
-
-        // Call the setLabelText() method on the controller object
-        updateLabelText(model.toStringTF(model.getOperationSymbol()));
-
-
-
-    }
-
 
 //    Handle Button Methods
 
     //Method to handle the return button which sends the user to the operationsLandingPage
     @FXML
-    private void returntooperationspageButton(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("operationsLandingPage.fxml"));
+    private void returnToGeometryPageButton(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("geometryLandingPage.fxml"));
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -344,7 +190,7 @@ public class GeoPracController {
 
     @FXML
     private void returntoQuestionType(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("QuestionType.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("gyQuestionType.fxml"));
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -356,10 +202,9 @@ public class GeoPracController {
 
     }
 
-    //Method that handles the next button on the mastery page
     @FXML
-    private void handleNextButtonToMasteryTest(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("mastery.fxml"));
+    private void handleNextButtonToTF(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("TF.fxml"));
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -371,89 +216,74 @@ public class GeoPracController {
 
     }
 
-
-//    public void FillInBlankQuestionGenerator() {
-
     @FXML
-    private StackPane imageContainer;
+    private void handleNextButtonToFIB(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("FIB.fxml"));
 
-//    public void displayRandomImage() {
-//        // Generate a random index to select an image file
-//        Random random = new Random();
-//        int randomIndex = random.nextInt(IMAGE_FILES.length);
-//
-//        // Get the selected image file
-//        String imageFileName = IMAGE_FILES[randomIndex];
-//        String imagePath = IMAGES_DIRECTORY + File.separator + imageFileName;
-//
-//        // Load the image and set it in the ImageView
-//        Image image = new Image(new File(imagePath).toURI().toString());
-//        randomImageView.setImage(image);
-//    }
-//    }
-//private static final String IMAGES_DIRECTORY = "com/example/snowitall/shapes";
-//    private static final String[] IMAGE_FILES = {
-//            "circle.png",
-//            "triangle.png",
-//            "square.png",
-//            "octagon.png",
-//            "nonagon.png",
-//            "heptagon.png",
-//            "hexagon.png",
-//            "pentagon.png"
-//            // Add more image filenames as needed
-//    };
-//
-//    public String generateRandomImageUrl() {
-//        // Generate a random index to select a random image filename
-//        int randomIndex = (int) (Math.random() * IMAGE_FILES.length);
-//
-//        // Create the complete URL by combining the directory and the random image filename
-//        String imageUrl = getClass().getClassLoader().getResource(IMAGES_DIRECTORY + "/" + IMAGE_FILES[randomIndex]).toExternalForm();
-//
-//        // Return the randomly selected image URL
-//        return imageUrl;
-//    }
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-    private static final String IMAGES_DIRECTORY = "src/main/resources/com/example/snowitall";
-    private static final String[] IMAGE_FILES = {
-            "circle.png",
-            "triangle.png",
-            "square.png",
-            "octagon.png",
-            "nonagon.png",
-            "heptagon.png",
-            "hexagon.png",
-            "pentagon.png"
-            // Add more image filenames as needed
-    };
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
 
-    public String generateRandomImageUrl() {
-        int randomIndex = (int) (Math.random() * IMAGE_FILES.length);
-        String imagePath = IMAGES_DIRECTORY + "/" + IMAGE_FILES[randomIndex];
+    }
 
-        // Get the URL of the image file
-        URL imageUrl = getClass().getResource("src/main/resources/com/example/snowitall/circle.png");
-        if (imageUrl == null) {
-            throw new IllegalArgumentException("Invalid image file: " + imagePath);
+    public void randomImageViewGenerator() {
+        // Make all ImageView instances invisible initially
+        circle.setVisible(false);
+        heptagon.setVisible(false);
+        hexagon.setVisible(false);
+        nonagon.setVisible(false);
+        octagon.setVisible(false);
+        pentagon.setVisible(false);
+        square.setVisible(false);
+        triangle.setVisible(false);
+
+        Random random = new Random();
+        int randomNumber = random.nextInt(8) + 1; // Generates a random number between 1 and 8
+
+        switch (randomNumber) {
+            case 1:
+                circle.setVisible(true);
+                System.out.println("circle is the chosen shape.");
+                break;
+            case 2:
+                heptagon.setVisible(true);
+                System.out.println("heptagon is the chosen shape.");
+                break;
+            case 3:
+                hexagon.setVisible(true);
+                System.out.println("hexagon is the chosen shape.");
+                break;
+            case 4:
+                nonagon.setVisible(true);
+                System.out.println("nonagon is the chosen shape.");
+                break;
+            case 5:
+                octagon.setVisible(true);
+                System.out.println("octagon is the chosen shape.");
+                break;
+            case 6:
+                pentagon.setVisible(true);
+                System.out.println("pentagon is the chosen shape.");
+                break;
+            case 7:
+                square.setVisible(true);
+                System.out.println("square is the chosen shape.");
+                break;
+            case 8:
+                triangle.setVisible(true);
+                System.out.println("triangle is the chosen shape.");
+                break;
+            default:
+                break;
         }
-
-        // Return the URL as a string
-        return imageUrl.toExternalForm();
     }
 
-    public void setRandomImage() {
-        // Generate a random image URL or path
-        String randomImageUrl = generateRandomImageUrl();
-
-        // Set the image source
-        Image image = new Image(randomImageUrl);
-        randomImageView.setImage(image);
-    }
-
-    @FXML
-    public void initialize() {
-        setRandomImage();
+    public void FillInBlankQuestionGenerator() {
+        randomImageViewGenerator();
     }
 
     public void handleFIBsubmitButton() {
@@ -505,20 +335,16 @@ public class GeoPracController {
         incorrectAnswerImage1.setVisible(false);
 
         //generates a new fill in the blank question when next question button is clicked
-//        displayRandomImage();
+        FillInBlankQuestionGenerator();
 
         // Call the setLabelText() method on the controller object
-        updateLabelText(model.toStringFIB(model.getOperationSymbol()));
+        updateLabelText(toStringFIB(model.getOperationSymbol()));
 
     }
     @FXML
     public void handleXButton() {
         giftAlert.setVisible(false);
         xButton.setVisible(false);
-    }
-
-    public void randomQuestionGenerator() {
-
     }
 
     @FXML
@@ -530,7 +356,7 @@ public class GeoPracController {
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
         // Get the controller object
-        GiftGlooController controller = loader.getController();;
+        GiftGlooController controller = loader.getController();
 
         // Call the setLabelText() method on the controller object
         controller.updateLabelText(controller.toString());
@@ -545,7 +371,7 @@ public class GeoPracController {
 
     @FXML
     private void returntolandingpageButton(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("landing-page.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ret-page.fxml"));
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -556,17 +382,4 @@ public class GeoPracController {
         stage.show();
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }
-

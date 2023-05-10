@@ -120,4 +120,91 @@ public class GeometryController implements Initializable
 
     }
 
+    @FXML
+    private void handleTF(ActionEvent event) throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TF.fxml"));
+        Parent root = loader.load();
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+
+        // Get the controller object
+        PracticeController controller = loader.getController();
+
+        controller.tfInitialize();
+
+
+        //generates True False question
+        controller.TrueFalseQuestionGenerator();
+
+        // Call the setLabelText() method on the controller object
+        controller.updateLabelText(controller.toStringTF());
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    @FXML
+    private void handleMC(ActionEvent event) throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MC.fxml"));
+        Parent root = loader.load();
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Get the controller object
+        PracticeController controller = loader.getController();
+
+        System.out.println("Handle MC has been called");
+
+        //sets submit button disable attribute to false when radio button is selected
+        controller.mcInitialize();
+
+        //generates multiple choice question
+        controller.MultipleChoiceQuestionGenerator();
+
+        // Call the setLabelText() method on the controller object
+        controller.updateLabelText(controller.toString());
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    @FXML
+    private void handleFIB(ActionEvent event) throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("gyFIB.fxml"));
+        Parent root = loader.load();
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Get the controller object
+        GeoPracController controller = loader.getController();
+        GeoModel model = new GeoModel();
+
+        System.out.println("Handle FIB has been called");
+
+        //sets submit button disable attribute to false when radio button is selected
+//        controller.mcInitialize();
+
+        //generates fill in the blank question
+        controller.FillInBlankQuestionGenerator();
+
+        // Call the setLabelText() method on the controller object
+        controller.updateLabelText(model.toStringFIB());
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
 }

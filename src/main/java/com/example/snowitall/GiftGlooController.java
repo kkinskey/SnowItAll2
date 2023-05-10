@@ -10,7 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class GiftGlooController implements SceneController{
+public class GiftGlooController //implements SceneController
+{
     @FXML
     private ImageView snowFlake;
 
@@ -52,15 +53,15 @@ public class GiftGlooController implements SceneController{
     }
 
 
-    @Override
-    public void setText(String text) {
-        // This method will be empty in the first controller, since we won't be setting text here
-    }
-
-    @Override
-    public Scene getScene() {
-        return null;
-    }
+//    @Override
+//    public void setText(String text) {
+//        // This method will be empty in the first controller, since we won't be setting text here
+//    }
+//
+//    @Override
+//    public Scene getScene() {
+//        return null;
+//    }
 
 //    @Override
 //    public Scene getScene() {
