@@ -55,8 +55,6 @@ public class OperationsController23 implements Initializable{
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
-
     }
 
     @FXML
@@ -74,7 +72,8 @@ public class OperationsController23 implements Initializable{
     @FXML
     private void handleVt23(ActionEvent event) throws Exception{
         System.out.println("handleVt23 called - GOING TO opVt23.fxml");
-        Parent root = FXMLLoader.load(getClass().getResource("com/example/snowitall/opVt23.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/snowitall/opVt23.fxml"));
+        Parent root = loader.load();
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         // Set the new scene on the stage
@@ -85,28 +84,30 @@ public class OperationsController23 implements Initializable{
     //Method to get the practice fxml file to display when button is clicked on the operations page
 
     @FXML
-    private void handlePracticeButton(ActionEvent event) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/snowitall/opGrade23FIB.fxml"));
+    private void handleFIB (ActionEvent event) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/snowitall/opGradeK1FIB.fxml"));
         Parent root = loader.load();
 
 
         // Get the current stage from the button's scene
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
 
         // Get the controller object
-        PracticeController23 controller = loader.getController();
-        PracticeModel23 model = new PracticeModel23();
+        PracticeControllerK1 controller = loader.getController();
+        PracticeModelK1 model = new PracticeModelK1();
+
+
         System.out.println("handlePracticeButton has been called - GOING TO Operations FIB PAGE");
 
 
         //generates fill in the blank question
         //controller.generateQuestionBasedOnGrade();
-        controller.FillInBlankQuestionGenerator();
+        controller.randomShapeGenerator();
 
 
         // Call the setLabelText() method on the controller object
-        controller.updateLabelText(controller.getModel().toStringFIB(controller.getModel().getOperationSymbol()));
+        controller.updateLabelText(model.toStringFIB());
 
 
         // Set the new scene on the stage
@@ -117,58 +118,14 @@ public class OperationsController23 implements Initializable{
 
     @FXML
     private void handleMt23(ActionEvent event) throws Exception{
-        System.out.println("handleMtK1 called - GOING TO opMt23.fxml");
-        Parent root = FXMLLoader.load(getClass().getResource("/com/example/snowitall/opMt23.fxml"));
-        // Get the current stage from the button's scene
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-    }
-
-
-    @FXML
-    private void handleMt23(ActionEvent event) throws Exception{
-        System.out.println("handleMtK1 called - GOING TO opMt23.fxml");
-        Parent root = FXMLLoader.load(getClass().getResource("com/example/snowitall/opMt23.fxml"));
-        // Get the current stage from the button's scene
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        // Set the new scene on the stage
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-
-    @FXML
-    private void handleFIB(ActionEvent event) throws Exception{
-        System.out.println("handleFIB called - GOING TO opGrade4FIB.fxml");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("com/example/snowitall/opGrade4FIB.fxml"));
+        System.out.println("handleVt23 called - GOING TO opVt23.fxml");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/snowitall/opMt23.fxml"));
         Parent root = loader.load();
-
-
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-
-        // Get the controller object
-        PracticeController controller = loader.getController();
-        PracticeModel model = new PracticeModel();
-
-
-        //generates fill in the blank question
-        controller.FillInBlankQuestionGenerator();
-
-
-        // Call the setLabelText() method on the controller object
-        controller.updateLabelText(controller.getModel().toStringFIB(controller.getModel().getOperationSymbol()));
-
-
         // Set the new scene on the stage
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
 }
-
-
-
-
