@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 public class MasteryController {
 
+    public Button Submit;
     @FXML
     private Label questionLabel;
     @FXML
@@ -27,6 +28,7 @@ public class MasteryController {
         // Set the question text
         questionLabel.setText("What is 9 x 4?");
     }
+
     @FXML
     private void handleFIBSubmitButton(ActionEvent event) {
         String userAnswer = answerField.getText().trim();
@@ -36,18 +38,35 @@ public class MasteryController {
             feedbackLabel.setText("Incorrect. The answer is " + answer);
         }
     }
+
     @FXML
-    private void returntooperationspageButton(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("operationsLandingPage.fxml"));
-
+    private void returnToOpGradeK1(ActionEvent event) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("opGradeK1.fxml"));
         // Get the current stage from the button's scene
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         // Set the new scene on the stage
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
-
+    @FXML
+    private void returnToOpGrade23(ActionEvent event) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("opGrade23.fxml"));
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    private void returnToOpGrade4(ActionEvent event) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("opGrade4.fxml"));
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

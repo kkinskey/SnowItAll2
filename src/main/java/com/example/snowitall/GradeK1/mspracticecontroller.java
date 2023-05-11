@@ -24,7 +24,7 @@ import java.util.Random;
 public class mspracticecontroller {
 
     @FXML
-    private ImageView redcow, bluecow, yellowcow, four;
+    private ImageView redcow, bluecow, yellowcow;
 
     @FXML
     public Button returnButton;
@@ -190,10 +190,9 @@ public class mspracticecontroller {
         redcow.setVisible(false);
         bluecow.setVisible(false);
         yellowcow.setVisible(false);
-        four.setVisible(false);
 
         Random random = new Random();
-        int randomNumber = random.nextInt(4) + 1; // Generates a random number between 1 and 4
+        int randomNumber = random.nextInt(3) + 1; // Generates a random number between 1 and 4
 
         switch (randomNumber) {
 
@@ -208,10 +207,6 @@ public class mspracticecontroller {
             case 3 -> {
                 yellowcow.setVisible(true);
                 System.out.println("bowlingpins image displayed");
-            }
-            case 4 -> {
-                four.setVisible(true);
-                System.out.println("butterflies image displayed");
             }
             default -> {
             }
@@ -244,7 +239,6 @@ public class mspracticecontroller {
         redcow.setVisible(false);
         bluecow.setVisible(false);
         yellowcow.setVisible(false);
-        four.setVisible(false);
     }
 
     public void answerCheck() {
@@ -263,12 +257,8 @@ public class mspracticecontroller {
             // Perform the desired action
             System.out.println("yellowcow is currently displayed");
             model.setCorrectAnswer("5");
-        } else if (four.isVisible()) {
-
-            // Perform the desired action
-            System.out.println("butterflies is currently displayed");
-            model.setCorrectAnswer("7");
-        }else {
+        }
+        else {
 
             // Perform the desired action
             System.out.println("No ImageView is currently displayed.");

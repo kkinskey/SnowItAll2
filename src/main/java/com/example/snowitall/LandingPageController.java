@@ -123,7 +123,7 @@ public class LandingPageController {
 
     @FXML
     private void handleOpGrade4(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("opGradeK4.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("opGrade4.fxml"));
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -234,7 +234,7 @@ public class LandingPageController {
     @FXML
     private void handleGiftGloo(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GiftGloo.fxml"));
-//        FXMLLoader l = new FXMLLoader(getClass().getResource("FIB.fxml"));
+//        FXMLLoader l = new FXMLLoader(getClass().getResource("opGrade4FIB.fxml"));
         Parent root = loader.load();
 
         // Get the current stage from the button's scene
@@ -256,7 +256,7 @@ public class LandingPageController {
 //           System.out.println(text);
 //           giftGlooController.updateLabelText();
 //        labelSetter();
-
+            giftGlooController.setTrophiesVisible();
 
         // Set the new scene on the stage
         Scene scene = new Scene(root);
@@ -269,7 +269,7 @@ public class LandingPageController {
 //    @FXML
 //    private void handleGiftGloo(ActionEvent event) throws Exception {
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("GiftGloo.fxml"));
-////        FXMLLoader l = new FXMLLoader(getClass().getResource("FIB.fxml"));
+////        FXMLLoader l = new FXMLLoader(getClass().getResource("opGrade4FIB.fxml"));
 //        Parent root = loader.load();
 //
 //        // Get the current stage from the button's scene
@@ -322,4 +322,6 @@ public class LandingPageController {
         // Show the login page
         stage.show();
     }
+
+
 }

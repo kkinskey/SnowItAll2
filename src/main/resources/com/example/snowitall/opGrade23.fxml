@@ -18,7 +18,7 @@
             <Cursor fx:constant="OPEN_HAND"/>
         </cursor>
     </Button>
-    <Button layoutX="188.0" layoutY="192.0" mnemonicParsing="false" onAction="#handlePracticeButton" opacity="0.0"
+    <Button layoutX="188.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleFIB" opacity="0.0"
             prefHeight="42.0" prefWidth="223.0" text="practice">
         <cursor>
             <Cursor fx:constant="OPEN_HAND"/>

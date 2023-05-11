@@ -63,7 +63,7 @@
 <!--            </Label>-->
 <!--        </children>-->
 <!--    </AnchorPane>-->
-<!--    <Button fx:id="returnButton" layoutX="7.0" layoutY="490.0" mnemonicParsing="false" onAction="#returntoQuestionType" opacity="0.0" prefHeight="37.0" prefWidth="97.0" text="return">-->
+<!--    <Button fx:id="returnButton" layoutX="7.0" layoutY="490.0" mnemonicParsing="false" onAction="#returnToQuestionType" opacity="0.0" prefHeight="37.0" prefWidth="97.0" text="return">-->
 <!--        <cursor>-->
 <!--            <Cursor fx:constant="OPEN_HAND" />-->
 <!--        </cursor></Button>-->

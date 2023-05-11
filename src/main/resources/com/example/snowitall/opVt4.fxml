@@ -17,18 +17,20 @@
     <ImageView fitHeight="571.0" fitWidth="769.0">
         <Image url="@backgrounds/videoTutorialStatic.png" />
     </ImageView>
-    <Button fx:id="returnButton" layoutX="7.0" layoutY="490.0" mnemonicParsing="false" onAction="#returntooperationspageButton" opacity="0.0" prefHeight="37.0" prefWidth="97.0" text="return">
-        <cursor>
-            <Cursor fx:constant="OPEN_HAND" />
-        </cursor></Button>
+    <StackPane layoutX="56.0" layoutY="200.0" prefHeight="200.0" prefWidth="270.0" styleClass="rounded-webview">
+        <WebView fx:id="videoTutorial41" prefHeight="222.0" prefWidth="270.0" />
+    </StackPane>
+    <StackPane layoutX="447.0" layoutY="200.0" prefHeight="200.0" prefWidth="270.0" styleClass="rounded-webview">
+        <WebView fx:id="videoTutorial42" prefHeight="222.0" prefWidth="270.0" />
+    </StackPane>
     <Button fx:id="nextButton" layoutX="672.0" layoutY="490.0" mnemonicParsing="false" onAction="#handlePracticeButton" opacity="0.0" prefHeight="37.0" prefWidth="91.0" text="next">
         <cursor>
             <Cursor fx:constant="OPEN_HAND" />
-        </cursor></Button>
-    <StackPane layoutX="56.0" layoutY="200.0" prefHeight="200.0" prefWidth="270.0" styleClass="rounded-webview">
-        <WebView fx:id="videoTutorial1" prefHeight="222.0" prefWidth="270.0" />
-    </StackPane>
-    <StackPane layoutX="447.0" layoutY="200.0" prefHeight="200.0" prefWidth="270.0" styleClass="rounded-webview">
-        <WebView fx:id="videoTutorial2" prefHeight="222.0" prefWidth="270.0" />
-    </StackPane>
+        </cursor>
+    </Button>
+    <Button fx:id="returnButton" layoutX="7.0" layoutY="490.0" mnemonicParsing="false" onAction="#returnToOperationsPageButton" opacity="0.0" prefHeight="37.0" prefWidth="97.0" text="return">
+        <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+        </cursor>
+    </Button>
 </AnchorPane>

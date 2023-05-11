@@ -8,11 +8,26 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="338.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snowitall.GiftGlooController">
         <children>
-        <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" visible="true">
             <image>
                 <Image url="@backgrounds/giftgloo.png" />
             </image>
         </ImageView>
+            <ImageView fitHeight="100" fitWidth="100" visible="false">
+                <image>
+                    <Image url="@trophies/snowTrophy1.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="100" fitWidth="100" visible="false">
+                <image>
+                    <Image url="@trophies/snowTrophy2.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="100" fitWidth="100" visible="false">
+                <image>
+                    <Image url="@trophies/snowTrophy3.png" />
+                </image>
+            </ImageView>
             <Label fx:id="snowFlakeCount" layoutX="33.0" layoutY="85.0" prefHeight="91.0" prefWidth="521.0" visible="true">
                 <font>
                     <Font name="Hiragino Sans W9" size="18.0" />

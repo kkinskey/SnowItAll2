@@ -10,6 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import java.sql.*;
+
 public class GiftGlooController {
     @FXML
     private ImageView snowFlake;
@@ -36,6 +38,9 @@ public class GiftGlooController {
 
     private PracticeController practiceController;
 
+    @FXML
+    private ImageView trophy1, trophy2, trophy3;
+
     public void setMainApp(LandingPageController landingPageController) {
         this.landingPageController = landingPageController;
     }
@@ -58,6 +63,18 @@ public class GiftGlooController {
         this.glooModel = glooModel;
     }
 
+    public void setTrophiesVisible(){
+        if(getSnowflakeCounter() >= 6){
+            trophy1.setVisible(true);
+        }
+        if (getSnowflakeCounter() >= 12){
+            trophy2.setVisible(true);
+        }
+        if (getSnowflakeCounter() >= 18){
+            trophy3.setVisible(true);
+        }
+        getSnowflakeCounter();
+    }
 
     public String snowFlakeCount() {
         System.out.println("This inside of gift controller: " + glooModel.getSnowflakes());
@@ -68,12 +85,46 @@ public class GiftGlooController {
 
     }
 
+
 //    public void updateLabelText() {
 ////       int rewardCount =  getRewardCountFromDatabase();
 //       System.out.println("Reward Count = " + rewardCount);
 //        String strNumber = Integer.toString(rewardCount);
 //        snowFlakeCount.setText("Current number of snowFlakes: " + strNumber);
 //    }
+
+    public int getSnowflakeCounter() {
+        int snowflakeCounter = 0; // Default value
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://snowitall-db.cyvluizuepzk.us-east-1.rds.amazonaws.com:3306/SnowItAll?user=admin&password=password&useSSL=false")) {
+            String sql = "SELECT SnowflakeCounter FROM User WHERE UserID = ?"; // Query to retrieve the SnowflakeCounter column
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, 1501);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                snowflakeCounter = resultSet.getInt("SnowflakeCounter");
+            }
+
+            System.out.println("SnowflakeCounter retrieved successfully from the database.");
+        } catch (SQLException e) {
+            System.out.println("Error retrieving SnowflakeCounter from the database: " + e.getMessage());
+        }
+
+        return snowflakeCounter;
+    }
+
+    public void updateLabelText() {
+
+        System.out.println("Reward Count = " + getSnowflakeCounter());
+        snowFlakeCount.setText("Current number of snowFlakes: " + getSnowflakeCounter());
+    }
+
 
     LoginController obj = new LoginController();
 //    public int getRewardCountFromDatabase() {

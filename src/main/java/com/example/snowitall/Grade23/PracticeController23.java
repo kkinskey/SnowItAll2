@@ -1,7 +1,9 @@
 package com.example.snowitall.Grade23;
 
 import com.example.snowitall.GiftGlooController;
+
 import com.example.snowitall.PracticeModel;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +17,9 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+
+import java.util.Random;
+
 
 public class PracticeController23 {
     @FXML
@@ -197,8 +202,71 @@ public class PracticeController23 {
         stage.show();
 
     }
+    public void randomShapeGenerator() {
+        // Make all ImageView instances invisible initially
+        bells.setVisible(false);
+        strawberries.setVisible(false);
+        bowlingpins.setVisible(false);
+        butterflies.setVisible(false);
 
+        Random random = new Random();
+        int randomNumber = random.nextInt(4) + 1; // Generates a random number between 1 and 4
 
+        switch (randomNumber) {
 
+            case 1 -> {
+                bells.setVisible(true);
+                System.out.println("bells image displayed");
+            }
+            case 2 -> {
+                strawberries.setVisible(true);
+                System.out.println("strawberries image displayed");
+            }
+            case 3 -> {
+                bowlingpins.setVisible(true);
+                System.out.println("bowlingpins image displayed");
+            }
+            case 4 -> {
+                butterflies.setVisible(true);
+                System.out.println("butterflies image displayed");
+            }
+            default -> {
+            }
+        }
+    }
 
+    public void setShapeVisibility() {
+        bells.setVisible(false);
+        strawberries.setVisible(false);
+        bowlingpins.setVisible(false);
+        butterflies.setVisible(false);
+    }
+
+    public void answerCheck() {
+        if (bells.isVisible()) {
+
+            // Perform the desired action
+            System.out.println("bells is currently displayed");
+            model.setCorrectAnswer("11");
+        } else if (strawberries.isVisible()) {
+
+            // Perform the desired action
+            System.out.println("strawberries is currently displayed");
+            model.setCorrectAnswer("8");
+        } else if (bowlingpins.isVisible()) {
+
+            // Perform the desired action
+            System.out.println("bowlingpins is currently displayed");
+            model.setCorrectAnswer("13");
+        } else if (butterflies.isVisible()) {
+
+            // Perform the desired action
+            System.out.println("butterflies is currently displayed");
+            model.setCorrectAnswer("7");
+        }else {
+
+            // Perform the desired action
+            System.out.println("No ImageView is currently displayed.");
+        }
+    }
 }
