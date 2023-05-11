@@ -47,6 +47,9 @@ public class OperationsControllerK1 implements Initializable{
     private void returnToLandingPageButton(ActionEvent event) throws Exception{
         System.out.println("returnToLandingPageButton called - GOING TO landing-page.fxml");
         Parent root = FXMLLoader.load(getClass().getResource("/com/example/snowitall/landing-page.fxml"));
+    private void returntolandingpageButton(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/snowitall/landing-page.fxml"));
+
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         // Set the new scene on the stage
@@ -189,8 +192,4 @@ public class OperationsControllerK1 implements Initializable{
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
-
-    }
-
 }
