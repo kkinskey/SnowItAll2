@@ -256,7 +256,7 @@ public class LandingPageController {
 //           System.out.println(text);
            giftGlooController.updateLabelText();
 //        labelSetter();
-
+            giftGlooController.setTrophiesVisible();
 
         // Set the new scene on the stage
         Scene scene = new Scene(root);
@@ -322,4 +322,6 @@ public class LandingPageController {
         // Show the login page
         stage.show();
     }
+
+
 }

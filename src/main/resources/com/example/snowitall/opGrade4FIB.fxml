@@ -81,5 +81,5 @@
         <cursor>
             <Cursor fx:constant="OPEN_HAND" />
         </cursor></Button>
-    <Button layoutX="30.0" layoutY="46.0" mnemonicParsing="false" onAction="#returntolandingpageButton" prefHeight="70.0" prefWidth="108.0" text="Gift Gloo" />
+    <Button layoutX="30.0" layoutY="46.0" mnemonicParsing="false" onAction="#handleGiftGloo" prefHeight="70.0" prefWidth="108.0" text="Gift Gloo" />
 </AnchorPane>

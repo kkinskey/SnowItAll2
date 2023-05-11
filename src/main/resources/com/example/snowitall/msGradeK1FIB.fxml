@@ -49,11 +49,6 @@
             </font>
         </Label>
         <AnchorPane layoutX="254.0" layoutY="94.0" prefHeight="70.0" prefWidth="108.0" />
-         <ImageView fx:id="four" fitHeight="218.0" fitWidth="253.0" layoutX="273.0" layoutY="129.0">
-             <image>
-                 <Image url="@GradeK1/butterflies.png" />
-             </image>
-         </ImageView>
          <ImageView fx:id="yellowcow" fitHeight="218.0" fitWidth="253.0" layoutX="273.0" layoutY="129.0">
              <image>
                  <Image url="@GradeK1/YellowCow.png" />

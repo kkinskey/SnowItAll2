@@ -275,6 +275,57 @@ public class GeoPracController{
 
     LoginController obj = new LoginController();
 
+    public int getUserId() {
+        int userId = 0; // Default value
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://snowitall-db.cyvluizuepzk.us-east-1.rds.amazonaws.com:3306/SnowItAll?user=admin&password=password&useSSL=false")) {
+            String sql = "SELECT UserId FROM User"; // Query to retrieve the UserId column
+            Statement statement = connection.createStatement();
+
+            ResultSet resultSet = statement.executeQuery(sql);
+            if (resultSet.next()) {
+                userId = resultSet.getInt("UserId");
+            }
+            System.out.println("UserId retrieved successfully from the database. The UserID is: " + userId + resultSet);
+        } catch (SQLException e) {
+            System.out.println("Error retrieving UserId from the database: " + e.getMessage());
+        }
+
+        return userId;
+    }
+
+    public int getSnowflakeCounter() {
+        int snowflakeCounter = 0; // Default value
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://snowitall-db.cyvluizuepzk.us-east-1.rds.amazonaws.com:3306/SnowItAll?user=admin&password=password&useSSL=false")) {
+            String sql = "SELECT SnowflakeCounter FROM User WHERE UserID = ?"; // Query to retrieve the SnowflakeCounter column
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, getUserId());
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                snowflakeCounter = resultSet.getInt("SnowflakeCounter");
+            }
+
+            System.out.println("SnowflakeCounter retrieved successfully from the database.");
+        } catch (SQLException e) {
+            System.out.println("Error retrieving SnowflakeCounter from the database: " + e.getMessage());
+        }
+
+        return snowflakeCounter;
+    }
+
     public void updateRewardCount(int rewardCount) {
 
         try {
@@ -291,7 +342,8 @@ public class GeoPracController{
             PreparedStatement statement = connection.prepareStatement(sql);
 
             statement.setInt(1, rewardCount);  // Assuming the rewardCount is within the range of TINYINT
-            statement.setInt(2, 8596);
+            statement.setInt(2, getUserId());
+            System.out.println("This is the UserID: " + getUserId());
 
             statement.executeUpdate();
             System.out.println("Reward count updated successfully in the database.");
@@ -312,7 +364,7 @@ public class GeoPracController{
             setShapeVisibility();
 
             //insert database reward method here
-            updateRewardCount(getReward());
+            updateRewardCount(getSnowflakeCounter() + 1);
 
             giftAlert.setVisible(true);
             xButton.setVisible(true);

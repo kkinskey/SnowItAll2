@@ -1,8 +1,6 @@
 package com.example.snowitall.Grade23;
 
 import com.example.snowitall.GiftGlooController;
-import com.example.snowitall.GradeK1.PracticeModelK1;
-import com.example.snowitall.PracticeModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,10 +14,6 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.Random;
 
 public class PracticeController23 {
