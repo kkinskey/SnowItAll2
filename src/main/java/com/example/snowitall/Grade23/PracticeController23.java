@@ -226,8 +226,8 @@ public class PracticeController23 {
     }
 
     @FXML
-    private void returntoopGradeK1(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/com/example/snowitall/opGradeK1.fxml"));
+    private void returntoopGrade23(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/snowitall/opGrade23.fxml"));
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -238,9 +238,6 @@ public class PracticeController23 {
         stage.show();
 
     }
-
-
-
 
     public void randomShapeGenerator() {
         // Make all ImageView instances invisible initially

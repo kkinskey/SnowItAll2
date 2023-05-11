@@ -77,8 +77,33 @@ public class PracticeControllerK1 {
         questionText.setText(text);
     }
 
+    @FXML
+    private void returnToQuestionType(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("opQuestionType.fxml"));
 
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    @FXML
+    private void returnToOperationspageButton(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/snowitall/opGradeK1.fxml"));
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
 
     int num = 0;
     public void handleFIBsubmitButton() {
@@ -235,9 +260,6 @@ public class PracticeControllerK1 {
         stage.show();
 
     }
-
-
-
 
     public void randomShapeGenerator() {
         // Make all ImageView instances invisible initially

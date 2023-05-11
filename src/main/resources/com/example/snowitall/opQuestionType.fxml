@@ -26,7 +26,7 @@
             <cursor>
                 <Cursor fx:constant="OPEN_HAND" />
             </cursor></Button>
-        <Button layoutY="284.0" mnemonicParsing="false" onAction="#returnToOpGrade4" opacity="0.0" prefHeight="53.0" prefWidth="88.0" text="return">
+        <Button layoutY="284.0" mnemonicParsing="false" onAction="#returnToOperationsPageButton" opacity="0.0" prefHeight="53.0" prefWidth="88.0" text="return">
             <cursor>
                 <Cursor fx:constant="OPEN_HAND" />
             </cursor>

@@ -8,7 +8,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
             prefHeight="338.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snowitall.OperationsController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snowitall.LandingPageController">
     <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@backgrounds/Grade.png" />
     </ImageView>
