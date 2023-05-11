@@ -225,19 +225,6 @@ public class PracticeController4 {
 
     }
 
-    @FXML
-    private void returntoopGradeK1(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/com/example/snowitall/opGradeK1.fxml"));
-
-        // Get the current stage from the button's scene
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-        // Set the new scene on the stage
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
-    }
 
 
 
@@ -309,4 +296,23 @@ public class PracticeController4 {
             System.out.println("No ImageView is currently displayed.");
         }
     }
+
+
+    @FXML
+    private void returntoopGrade4(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/snowitall/opGrade4.fxml"));
+
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+
+    }
+
 }

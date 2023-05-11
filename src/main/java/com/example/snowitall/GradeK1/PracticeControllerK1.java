@@ -306,4 +306,6 @@ public class PracticeControllerK1 {
             System.out.println("No ImageView is currently displayed.");
         }
     }
+
+
 }

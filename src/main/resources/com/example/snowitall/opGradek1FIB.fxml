@@ -79,44 +79,25 @@
             <AnchorPane layoutX="254.0" layoutY="94.0" prefHeight="70.0" prefWidth="108.0">
                 <ImageView fx:id="bells" fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="13.0">
                     <image>
-                        <Image url="@operationsK1/bells.png" />
+                        <Image url="@GradeK1/bells.png" />
                     </image>
                 </ImageView>
                 <ImageView fx:id="strawberries" fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="13.0">
                     <image>
-                        <Image url="@operationsK1/strawberries.png" />
+                        <Image url="@GradeK1/strawberries.png" />
                     </image>
                 </ImageView>
                 <ImageView fx:id="bowlingpins" fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="13.0">
                     <image>
-                        <Image url="@operationsK1/bowlingpins.png" />
+                        <Image url="@GradeK1/bowlingpins.png" />
                     </image>
                 </ImageView>
                 <ImageView fx:id="butterflies" fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="13.0">
                     <image>
-                        <Image url="@operationsK1/butterflies.png" />
+                        <Image url="@GradeK1/butterflies.png" />
                     </image>
                 </ImageView>
-<!--                <ImageView fx:id="square" fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="13.0">-->
-<!--                    <image>-->
-<!--                        <Image url="@operationsK1/bells.png" />-->
-<!--                    </image>-->
-<!--                </ImageView>-->
-<!--                <ImageView fx:id="triangle" fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="13.0">-->
-<!--                    <image>-->
-<!--                        <Image url="@operationsK1/bells.png" />-->
-<!--                    </image>-->
-<!--                </ImageView>-->
-<!--                <ImageView fx:id="circle" fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="13.0">-->
-<!--                    <image>-->
-<!--                        <Image url="@operationsK1/bells.png" />-->
-<!--                    </image>-->
-<!--                </ImageView>-->
-<!--                <ImageView fx:id="heptagon" fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="13.0">-->
-<!--                    <image>-->
-<!--                        <Image url="@operationsK1/bells.png" />-->
-<!--                    </image>-->
-<!--                </ImageView>-->
+
             </AnchorPane>
         </children>
     </AnchorPane>
