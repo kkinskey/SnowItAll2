@@ -94,8 +94,36 @@ public class LandingPageController {
 //    }
 
     @FXML
-    private void handleOpGrade(ActionEvent event) throws IOException {
+    private void handleOpGradeK1(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("opGradeK1.fxml"));
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setTitle("Snow It All");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void handleOpGrade23(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("opGrade23.fxml"));
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setTitle("Snow It All");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void handleOpGrade4(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("opGradeK4.fxml"));
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

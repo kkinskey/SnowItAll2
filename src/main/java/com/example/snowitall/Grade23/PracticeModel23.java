@@ -1,24 +1,17 @@
-package com.example.snowitall.GradeK1;
+package com.example.snowitall.Grade23;
 
-public class GeoModel {
-    private int grade;
+public class PracticeModel23 {
+
+    public PracticeModel23() {
+
+    }
+
 
     private int answer;
 
     private String correctAnswer;
-    private String num1;
-    private String num2;
-
 
     private int correctAnswerCount;
-
-
-    public GeoModel() {
-
-    }
-    public int getGrade() {
-        return grade;
-    }
 
     public int getAnswer() {
         return answer;
@@ -27,16 +20,6 @@ public class GeoModel {
 
     public void setAnswer(int answer) {
         this.answer = answer;
-    }
-
-
-    public String getNum1() {
-        return num1;
-    }
-
-
-    public String getNum2() {
-        return num2;
     }
 
 
@@ -59,10 +42,12 @@ public class GeoModel {
 
 
 
-
     public String toStringFIB (){
-        String questionText = "How many sides does this shape have?";
+        String questionText = "Add the objects";
         return questionText;
     }
 
 }
+
+
+

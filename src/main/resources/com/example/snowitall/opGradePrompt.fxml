@@ -10,17 +10,17 @@
     <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@backgrounds/Grade.png" />
     </ImageView>
-    <Button layoutX="58.0" layoutY="127.0" mnemonicParsing="false" onAction="#handleOpGrade" opacity="0.0" prefHeight="42.0" prefWidth="229.0" text="K1">
+    <Button layoutX="58.0" layoutY="127.0" mnemonicParsing="false" onAction="#handleOpGradeK1" opacity="0.0" prefHeight="42.0" prefWidth="229.0" text="K1">
         <cursor>
             <Cursor fx:constant="OPEN_HAND" />
         </cursor>
     </Button>
-    <Button layoutX="314.0" layoutY="127.0" mnemonicParsing="false" onAction="#handleOpGrade" opacity="0.0" prefHeight="42.0" prefWidth="229.0" text="23">
+    <Button layoutX="314.0" layoutY="127.0" mnemonicParsing="false" onAction="#handleOpGrade23" opacity="0.0" prefHeight="42.0" prefWidth="229.0" text="23">
         <cursor>
           <Cursor fx:constant="OPEN_HAND" />
         </cursor>
     </Button>
-    <Button layoutX="185.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleOpGrade" opacity="0.0" prefHeight="42.0" prefWidth="229.0" text="4">
+    <Button layoutX="185.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleOpGrade4" opacity="0.0" prefHeight="42.0" prefWidth="229.0" text="4">
         <cursor>
           <Cursor fx:constant="OPEN_HAND" />
         </cursor>
