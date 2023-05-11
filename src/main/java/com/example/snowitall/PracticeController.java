@@ -412,7 +412,7 @@ public class PracticeController {
 
     @FXML
     private void handleNextButtonToFIB(ActionEvent event) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("FIB.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("opGrade4FIB.fxml"));
         Parent root = loader.load();
 
         // Get the current stage from the button's scene

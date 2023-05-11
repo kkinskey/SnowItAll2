@@ -11,25 +11,25 @@
     <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@backgrounds/operationsLandingPageImg.png"/>
     </ImageView>
-    <Button layoutX="189.0" layoutY="119.0" mnemonicParsing="false" onAction="#handleVideoTutorial" opacity="0.0"
+    <Button layoutX="189.0" layoutY="119.0" mnemonicParsing="false" onAction="#handleVt23" opacity="0.0"
             prefHeight="42.0" prefWidth="223.0" text="videoTutorial">
         <cursor>
             <Cursor fx:constant="OPEN_HAND"/>
         </cursor>
     </Button>
-    <Button layoutX="188.0" layoutY="192.0" mnemonicParsing="false" onAction="#handlePracticeButton" opacity="0.0"
+    <Button layoutX="188.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleFIB" opacity="0.0"
             prefHeight="42.0" prefWidth="223.0" text="practice">
         <cursor>
             <Cursor fx:constant="OPEN_HAND"/>
         </cursor>
     </Button>
-    <Button layoutX="189.0" layoutY="263.0" mnemonicParsing="false" onAction="#handleMasteryTestButton" opacity="0.0"
+    <Button layoutX="189.0" layoutY="263.0" mnemonicParsing="false" onAction="#handleMt23" opacity="0.0"
             prefHeight="42.0" prefWidth="223.0" text="masteryTest">
         <cursor>
             <Cursor fx:constant="OPEN_HAND"/>
         </cursor>
     </Button>
-    <Button layoutY="284.0" mnemonicParsing="false" onAction="#returntolandingpageButton" opacity="0.0" prefHeight="53.0"
+    <Button layoutY="284.0" mnemonicParsing="false" onAction="#returnToLandingPageButton" opacity="0.0" prefHeight="53.0"
             prefWidth="88.0" text="return">
         <cursor>
             <Cursor fx:constant="OPEN_HAND"/>

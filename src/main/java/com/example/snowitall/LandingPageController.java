@@ -192,7 +192,7 @@ public class LandingPageController {
     @FXML
     private void handleGiftGloo(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GiftGloo.fxml"));
-//        FXMLLoader l = new FXMLLoader(getClass().getResource("FIB.fxml"));
+//        FXMLLoader l = new FXMLLoader(getClass().getResource("opGrade4FIB.fxml"));
         Parent root = loader.load();
 
         // Get the current stage from the button's scene
@@ -227,7 +227,7 @@ public class LandingPageController {
 //    @FXML
 //    private void handleGiftGloo(ActionEvent event) throws Exception {
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("GiftGloo.fxml"));
-////        FXMLLoader l = new FXMLLoader(getClass().getResource("FIB.fxml"));
+////        FXMLLoader l = new FXMLLoader(getClass().getResource("opGrade4FIB.fxml"));
 //        Parent root = loader.load();
 //
 //        // Get the current stage from the button's scene

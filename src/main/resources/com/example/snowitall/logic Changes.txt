@@ -9,4 +9,11 @@ change to true false to fill in the blank DONE
 
 practice to fill in the blank delete next button DONE
 
-geometry to practice to question type
+landing page go to grade prompt for each standard
+Grade prompt 3 buttons: K1, 23, 4
+All 3 go to ms, gy, op / Grade / K1, 23, 4
+Sends either to Vt, P, Mt
+
+SPECIAL CASE: Grade4 clicked - Practice clicked - go to QuestionType (op, gy, ms)
+Click Practice on K1, 23 and go to op,gy,ms / Grade / K1, 23, 4 - then to FIB.fxml
+K1, 23 landing page - Practice - FIB - needs to go to op, ms, gy / Grade / K1, 23

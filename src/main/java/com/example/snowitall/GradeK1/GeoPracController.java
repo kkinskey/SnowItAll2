@@ -222,7 +222,7 @@ public class GeoPracController{
 
     @FXML
     private void handleNextButtonToFIB(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("FIB.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("opGrade4FIB.fxml"));
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
