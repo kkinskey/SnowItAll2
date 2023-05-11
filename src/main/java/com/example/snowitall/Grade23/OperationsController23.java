@@ -3,10 +3,9 @@
 package com.example.snowitall.Grade23;
 
 
-import com.example.snowitall.GradeK1.PracticeControllerK1;
-import com.example.snowitall.GradeK1.PracticeModelK1;
+import com.example.snowitall.MasteryTestController;
 import com.example.snowitall.PracticeController;
-import com.example.snowitall.PracticeModel;
+import com.example.snowitall.Grade23.PracticeModel23;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -140,14 +139,42 @@ public class OperationsController23 implements Initializable{
 
     @FXML
     private void handleMt23(ActionEvent event) throws Exception{
-        System.out.println("handleMtK1 called - GOING TO opMt23.fxml");
-        Parent root = FXMLLoader.load(getClass().getResource("com/example/snowitall/opMt23.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/snowitall/opMastery.fxml"));
+        Parent root = loader.load();
+
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        MasteryTestController controller = loader.getController();
+
+        //generates fill in the blank question
+        controller.FillInBlankQuestionGenerator();
+
+        // Call the setLabelText() method on the controller object
+        controller.updateLabelText(controller.getModel().toStringFIB(controller.getModel().getOperationSymbol()));
+
+
         // Set the new scene on the stage
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+
+
+    @FXML
+    private void handleMasteryTestButton(ActionEvent event) throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/snowitall/masterytestprompt.fxml"));
+        Parent root = loader.load();
+
+        // Get the current stage from the button's scene
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+
+        // Set the new scene on the stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
     }
 
 
@@ -163,8 +190,8 @@ public class OperationsController23 implements Initializable{
 
 
         // Get the controller object
-        PracticeController controller = loader.getController();
-        PracticeModel model = new PracticeModel();
+        PracticeController23 controller = loader.getController();
+        PracticeModel23 model = new PracticeModel23();
 
 
         //generates fill in the blank question

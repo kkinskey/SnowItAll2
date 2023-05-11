@@ -257,7 +257,7 @@ public class mspracticecontroller {
 
             // Perform the desired action
             System.out.println("bluecow is currently displayed");
-            model.setCorrectAnswer("8");
+            model.setCorrectAnswer("2");
         } else if (yellowcow.isVisible()) {
 
             // Perform the desired action

@@ -254,7 +254,7 @@ public class LandingPageController {
 //        giftGlooController.setLabel(practiceController.getIntLabel());
 //           String text = giftGlooController.practiceController.getGift().getSnowflakes() + "";
 //           System.out.println(text);
-           giftGlooController.updateLabelText();
+//           giftGlooController.updateLabelText();
 //        labelSetter();
 
 

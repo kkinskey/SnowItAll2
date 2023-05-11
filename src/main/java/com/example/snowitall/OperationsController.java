@@ -208,7 +208,7 @@ public class OperationsController implements Initializable{
 
         // Get the controller object
         PracticeController controller = loader.getController();
-        PracticeModel model = new PracticeModel();
+
 
         System.out.println("Handle FIB has been called");
 

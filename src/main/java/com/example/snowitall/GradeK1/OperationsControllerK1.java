@@ -1,11 +1,10 @@
 package com.example.snowitall.GradeK1;
 
-import com.example.snowitall.PracticeController;
+import com.example.snowitall.MasteryTestController;
 import com.example.snowitall.PracticeModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,9 +13,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class OperationsControllerK1 {
 
@@ -87,10 +83,19 @@ public class OperationsControllerK1 {
     //Method to get the Mastery fxml file to display when button is clicked on the operations page
     @FXML
     private void handleMasteryTestButton(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("opMastery.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(""));
+        Parent root = loader.load();
 
         // Get the current stage from the button's scene
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        MasteryTestController controller = loader.getController();
+
+        //generates fill in the blank question
+        controller.FillInBlankQuestionGenerator();
+
+        // Call the setLabelText() method on the controller object
+        controller.updateLabelText(controller.getModel().toStringFIB(controller.getModel().getOperationSymbol()));
+
 
         // Set the new scene on the stage
         Scene scene = new Scene(root);
